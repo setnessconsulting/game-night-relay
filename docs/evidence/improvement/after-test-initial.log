@@ -1,0 +1,50 @@
+
+> night-relay-slice@0.1.0 test
+> node --test tests/*.test.mjs
+
+✔ frozen oracle fixture is bound to the exact reviewed authoring, without production output (4.3084ms)
+✔ all 324 unique domain tuples match complete independent table-derived output (23.6825ms)
+✔ authored golden: complete_supported (0.2835ms)
+✔ authored golden: actionable_but_incomplete (0.1544ms)
+✔ authored golden: missing_plan (0.1459ms)
+✔ authored golden: coherent_wrong_entrance (0.1101ms)
+✔ authored golden: contradictory_route_gate (0.1426ms)
+✔ authored golden: contradictory_conclusion (0.1412ms)
+✔ authored golden: unsupported_rationale (0.1652ms)
+✔ authored golden: irrelevant_evidence (0.1981ms)
+✔ authored golden: all_blank (0.1593ms)
+✔ authored golden: quickest_with_blank_plan (0.1468ms)
+✔ authored golden: route_conflict_and_quickest (0.1812ms)
+✔ authored golden: opposite_route_conflict (0.124ms)
+✔ authored golden: notice_conflict_without_plan (0.0733ms)
+✔ authored golden: path_admission_conflict_without_gate (0.1086ms)
+✔ authored golden: irrelevant_map_without_path (0.0809ms)
+✔ authored golden: disconnected_evidence_without_plan (0.0739ms)
+✔ authored golden: wrong_entrance_missing_explanation (0.0653ms)
+✔ authored golden: contradiction_and_irrelevant_notice_with_blank_map (0.0688ms)
+✔ authored golden: irrelevant_map_and_disconnected_evidence (0.0802ms)
+✔ authored golden: gate_admission_conflict_without_path (0.065ms)
+✔ authored golden: missing_conclusion_only (0.0622ms)
+✔ authored golden: do_not_fill_gate (0.0588ms)
+✔ authored golden: do_not_infer_plan_from_evidence (0.0602ms)
+✔ authored golden: missing_gate_precedes_known_wrong_entrance (0.0815ms)
+✔ authored golden: unanchored_conclusion_is_not_false (0.0662ms)
+✔ authored golden: both_conclusion_checks_with_correct_directions (0.0819ms)
+✔ exactly eight recipient overrides; same-class neighbours use fragments (11.6662ms)
+✔ invalid input fails as an implementation contract error without coercion (1.6659ms)
+✔ preview exposes blanks and never fills a field from evidence (0.3232ms)
+✔ oracle comparison detects secondary, priority, blank, link and override defects (3.8137ms)
+✔ revision 5 changes the interaction contract without changing any evaluator expectation (2.1284ms)
+✔ the two presentation steps cover each independent decision once (0.7602ms)
+✔ blank start, partial Send, independent edits, revision and submitted snapshot (3.7982ms)
+✔ source inspection and help preserve selections and identify later submissions (0.6958ms)
+✔ completion and Replay alone explicitly clear the draft and help history (0.396ms)
+✔ implementation failure retains the draft and never completes a failed Send (0.5965ms)
+ℹ tests 38
+ℹ suites 0
+ℹ pass 38
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 170.28

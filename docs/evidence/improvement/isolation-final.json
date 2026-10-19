@@ -1,0 +1,411 @@
+{
+  "captured_at": "2026-10-19T04:04:12.325Z",
+  "source": "<user-profile>\\Desktop\\AI Projects\\02-setnessconsulting\\_worktrees\\game-night-relay-slice-20261018",
+  "copy": "<user-profile>\\Desktop\\AI Projects\\02-setnessconsulting\\_worktrees\\game-night-relay-improved-20261018\\",
+  "baselineBranch": "codex/night-relay-slice-20261018",
+  "baselineHead": "2c46b0eb4c1e83585e234f891c92eb3498ce3802",
+  "sourceUnchanged": true,
+  "verifiedSourceFiles": 253,
+  "identity": {
+    "algorithm": "sha256",
+    "build": "2d6d52c10a2ef60cf4dec93df5bb554dee785359269cf4c7633f5d52d00a6fd1",
+    "files": {
+      "index.html": "51d50eef4c6908599e6c28799403ccc94d25c62b3613154c3756d041ee72ad33",
+      "package.json": "cc03994d4cd9da97781f11bc266f4167be8042ea9a8c070f244dd198a30ba37e",
+      "package-lock.json": "4ab73e5894f8c2b157060b64ebcd14758e8cba02d726d511b442b74025732d36",
+      "src/app.js": "3469626fca44a80ced72cb2c500350520e067bd1fa11e9240eefaa2ee5c4fc92",
+      "src/bootstrap.js": "1c6b1a851d8a28cfaf74d9d5872e1675a0fa5f98c982f86c62ca0d005f740bae",
+      "src/content.js": "ec10c0b67aa34f7f3749096b169f76f3eda066662101b1b42eb879a3f788ccbe",
+      "src/evaluator.js": "7282f0811cc9ac41c4af5694403c46422c8ed031182e7fe1b2d1ff8a0beee848",
+      "src/format.js": "3424aeba77f28c43186a2663b1d238289ac2ca8d9f04dc53f2fd147d6d5c7c3b",
+      "src/session.js": "b087d317ea7537d685d1fb6aa2a7aafed1db39718457e1672cf58b65d45c6cc7",
+      "src/style.css": "b762f67e364c3718c813bf1a8ce8c11c11faabced7ec2ad8549e0dba5e6a5222"
+    }
+  },
+  "verification": {
+    "algorithm": "sha256",
+    "verifier": "714c8ff7d1dc6ea1ad92b6ca2fedf21d32875172580512ec334b6eee6e3cf659",
+    "files": {
+      "scripts/browser-check.mjs": "c74d9986c4b52ffcb84d4905fbf93023e3df2f1241003f141af76b10c1b605e2",
+      "scripts/build-identity.mjs": "654972afab35ef77a9ad44eb7b615d847856e35bb061e147cdeddd0961b37978",
+      "scripts/capture-comparison.mjs": "affe96c9493586b52ad621c2fd6dc6847abde721befcbdf307b0a2b85afdbe8d",
+      "scripts/check.mjs": "37e1bd74c3b0baa769f90b9a9ceace24b2e42fe38cdf2159e4a22bf72f9d7e72",
+      "scripts/extract-contract.mjs": "69ac50587f20958dc9f6436b3e3c4e36c8e87a84ad40a0561ccc22453e79b9c4",
+      "scripts/interaction-check.mjs": "3b956e263a8bbb13b1d50bcd769ce37e55dc9cdb6dbab9183742042a78bebd7e",
+      "scripts/serve.mjs": "309bc3e01ceb779e12d76348c527b28cb168b1ac965dd7d17a6308a84ba1b95f",
+      "scripts/validate-design.py": "e718a00bb96db5b8c9b9bc656149ab298d58578d4e29f4c301d9ee41aad8bb5f",
+      "scripts/verify-isolation.mjs": "52567d689e570852899fc38930bf36d5f847fe9f0e1f62643e04523b8aaa1060",
+      "scripts/verify-local.mjs": "b858e3163fc98fdd9ebc3e32ec113d191fd974bb3de3e08e35142f6cfe62bf1f",
+      "tests/evaluator.test.mjs": "0edcc0b721f70d76eb309cbfe40b07d8878519709de453575f53777bcd1d09cd",
+      "tests/fixtures/revision-4-oracle.json": "7c010d39311ff72b58f9425a14ad5ff5d4056ca5ed7e29eee932662fc5dd3c6b",
+      "tests/fixtures/revision-5-interactions.json": "e6b6067082d39becd8975c06a950899aa05d852dceca54409d90ac876e0e86d6",
+      "tests/interaction-contract.test.mjs": "d26265ea8889100a3793fe5fc8d15ed448de8f5933b39adfad62d403a54d6149",
+      "tests/oracle.mjs": "6c8891061210168b3b99669ef830648e9c3c102fe75248df0624221fd5e82c31",
+      "tests/session.test.mjs": "b0f4e768946dfe6e3cddd3ccf394193a28b01097e28e5fd712feedf39e728197"
+    }
+  },
+  "changed": [
+    {
+      "path": "docs/acceptance/README.md",
+      "change": "modified",
+      "sha256": "9e6023bacdf6f9b65b8a42c148f0903ecd509dfbe2b03b33b4dd93977e449c2f"
+    },
+    {
+      "path": "docs/design/vertical-slice-brief-r5.json",
+      "change": "added",
+      "sha256": "4418d5478fdac84da9271a8a2eca638d38a0aa1b315360d7828b7f2aa4d9c7e4"
+    },
+    {
+      "path": "docs/evidence/improvement/after/browser-results.json",
+      "change": "added",
+      "sha256": "4f5a7c7e7df9819035888c68c3a8fff22b963e848a60d6fb5c1a9671213e33cf"
+    },
+    {
+      "path": "docs/evidence/improvement/after/browser.log",
+      "change": "added",
+      "sha256": "a9d8eb08426dcd939065b2d0c2c23eafe75174773f6ea3f3912696a1f0758721"
+    },
+    {
+      "path": "docs/evidence/improvement/after/check.log",
+      "change": "added",
+      "sha256": "2136024df4fdc9f61602837625e81ad74651c8c10d41d28f009e96c1ad58d077"
+    },
+    {
+      "path": "docs/evidence/improvement/after/comparison-capture.json",
+      "change": "added",
+      "sha256": "9e1a3912f895af9f1dc31be7dcf5a3779c87a793808cb5722130706c10a61d68"
+    },
+    {
+      "path": "docs/evidence/improvement/after/desktop-complete-full.png",
+      "change": "added",
+      "sha256": "ba7e2f16989b219e5240a55bae6eaa519eee5b2f71a1468219a23b3be41b03b4"
+    },
+    {
+      "path": "docs/evidence/improvement/after/desktop-complete.png",
+      "change": "added",
+      "sha256": "5cb242adad552c2d28ea2082bb032ad2fc0a0327ecf4b632aac1332ee2539bdf"
+    },
+    {
+      "path": "docs/evidence/improvement/after/desktop-decision-full.png",
+      "change": "added",
+      "sha256": "6043ccff43d6b3b587a811b827282e9238e2ef440cd7ee89b938e2a0cd583087"
+    },
+    {
+      "path": "docs/evidence/improvement/after/desktop-decision.png",
+      "change": "added",
+      "sha256": "ad41107ee134b2b491e23753024af42ff2a667b781f2edc1bfed9ad167b8ab26"
+    },
+    {
+      "path": "docs/evidence/improvement/after/desktop-start-full.png",
+      "change": "added",
+      "sha256": "5cef91d737138d208f16582b10fd3ddb700bb9859eb0103f0c7651e37c83bb98"
+    },
+    {
+      "path": "docs/evidence/improvement/after/desktop-start.png",
+      "change": "added",
+      "sha256": "5ed4616a4df3f5e6321d83d71dc7b32403657fab5c8a99ee6e12702b873667c9"
+    },
+    {
+      "path": "docs/evidence/improvement/after/initial-browser-failure.json",
+      "change": "added",
+      "sha256": "681bf4c628f61d5d741e00975d60f71a84f9c175ded7957b1acc70020b70f785"
+    },
+    {
+      "path": "docs/evidence/improvement/after/narrow-complete-full.png",
+      "change": "added",
+      "sha256": "b51015adab19375048d50d02d200b234c9ed584de16ae25a6e193c07388912ef"
+    },
+    {
+      "path": "docs/evidence/improvement/after/narrow-complete.png",
+      "change": "added",
+      "sha256": "095b61ec5f03c6331242f3ca6c6f28f839c01582e0d7616b989b775b02567835"
+    },
+    {
+      "path": "docs/evidence/improvement/after/narrow-decision-full.png",
+      "change": "added",
+      "sha256": "c84fa972b4a3cef18a7176fa1c0122fe72efa7889fcb9bc59791685418bb47e5"
+    },
+    {
+      "path": "docs/evidence/improvement/after/narrow-decision.png",
+      "change": "added",
+      "sha256": "76f2b578723d5d4c3b73e9f94d680ab478444c36e90fd1ad26d0c67ae7212813"
+    },
+    {
+      "path": "docs/evidence/improvement/after/narrow-start-full.png",
+      "change": "added",
+      "sha256": "2264643f5c76de1ce321e82637951f0cc25b6ba722d0e9e5e09f6090383793b3"
+    },
+    {
+      "path": "docs/evidence/improvement/after/narrow-start.png",
+      "change": "added",
+      "sha256": "286ef286da044d05d74c057fd058193c9944eec3e83eddfb0d4a7d4d87d617ae"
+    },
+    {
+      "path": "docs/evidence/improvement/after/test.log",
+      "change": "added",
+      "sha256": "4bfac1e04ffdd5d43ddcb04b01cc0dac7cf58391c1c7922b576eecfae59fda93"
+    },
+    {
+      "path": "docs/evidence/improvement/after/verification-results.json",
+      "change": "added",
+      "sha256": "e353a22a971f56b6f89e9fe80d67edd16b9990a17d59d33340e941c0acf5a838"
+    },
+    {
+      "path": "docs/evidence/improvement/after-browser-initial.log",
+      "change": "added",
+      "sha256": "a49abd772d8273d001c54a07b070173241b01f9a033c501d1e3186c95804245b"
+    },
+    {
+      "path": "docs/evidence/improvement/after-browser-second.log",
+      "change": "added",
+      "sha256": "43ec41b6a8959465516a812ae6d876945c31d658c00e4eec383bb3244b3dc2de"
+    },
+    {
+      "path": "docs/evidence/improvement/after-check-initial.log",
+      "change": "added",
+      "sha256": "697ba7e6610753ab4c60f63b532ef76d039d04aaa8b122835b52a751f5df6d00"
+    },
+    {
+      "path": "docs/evidence/improvement/after-test-initial.log",
+      "change": "added",
+      "sha256": "f6b7ea75bdd3a7935d15376e7bb86f62415877741de0b62be7cd5cc877432c24"
+    },
+    {
+      "path": "docs/evidence/improvement/baseline.json",
+      "change": "added",
+      "sha256": "133a015e433024c88d25c82c599f8ea0616c00cb731f4e97e54fd25ed2365ea1"
+    },
+    {
+      "path": "docs/evidence/improvement/before/browser-results.json",
+      "change": "added",
+      "sha256": "990be32b285c93e0d7c44fa5a52f1ec040e8da04c04271fe94b329f18cab80ce"
+    },
+    {
+      "path": "docs/evidence/improvement/before/browser.log",
+      "change": "added",
+      "sha256": "4ab0ed5d9061643c471a58fcf75d92e29e13df5ceee3dbf8963a46fb7c1b995a"
+    },
+    {
+      "path": "docs/evidence/improvement/before/check.log",
+      "change": "added",
+      "sha256": "d3b3bd1a8bd16599a145ffe13d5756517ffba40251c5cfdb4b2b26f83b008a18"
+    },
+    {
+      "path": "docs/evidence/improvement/before/commands.json",
+      "change": "added",
+      "sha256": "ad3ded163539fa279d3b43eb3ec8cd736ff9991439fd8dc3d7aad1628e2d75af"
+    },
+    {
+      "path": "docs/evidence/improvement/before/comparison-capture.json",
+      "change": "added",
+      "sha256": "d4d887dd50ae586d5ab261a630ee45c98e33339a144e869e559c4a7d5ca26389"
+    },
+    {
+      "path": "docs/evidence/improvement/before/desktop-complete-full.png",
+      "change": "added",
+      "sha256": "0b9e1f1dfcd52c49ed9057f824f310255120d1665b37aee582677074c0420d72"
+    },
+    {
+      "path": "docs/evidence/improvement/before/desktop-complete.png",
+      "change": "added",
+      "sha256": "a3f885fb28bf7bfe4aa67fc247486da068f2cc5b00384b065b86e3ad413dbad0"
+    },
+    {
+      "path": "docs/evidence/improvement/before/desktop-decision-full.png",
+      "change": "added",
+      "sha256": "91e60db574808c982f1801f2fa98fe3ae263d55885e4918f03f26fa1786a4cef"
+    },
+    {
+      "path": "docs/evidence/improvement/before/desktop-decision.png",
+      "change": "added",
+      "sha256": "03bea38c2465b81ba8170289dd9f5a95f900dcb3f21a86b896f4c06639482e39"
+    },
+    {
+      "path": "docs/evidence/improvement/before/desktop-start-full.png",
+      "change": "added",
+      "sha256": "0cfa14ae01881c0ee8c88d9ea39c1f16451e26ed07a5ca4b8c56876e23d62ee0"
+    },
+    {
+      "path": "docs/evidence/improvement/before/desktop-start.png",
+      "change": "added",
+      "sha256": "d653e48a5978bbdf748a97cb55b3fdb4082a8e03640bdd54e02c6ff5efcf1869"
+    },
+    {
+      "path": "docs/evidence/improvement/before/narrow-complete-full.png",
+      "change": "added",
+      "sha256": "70d23e44702c5045908e71f4a7ef834aa0c595a7207d1188052cb294043ce1ba"
+    },
+    {
+      "path": "docs/evidence/improvement/before/narrow-complete.png",
+      "change": "added",
+      "sha256": "c583e16f2aa57fa2bf3416db0024536c0b7b59470f1a207292a889cd3d499934"
+    },
+    {
+      "path": "docs/evidence/improvement/before/narrow-decision-full.png",
+      "change": "added",
+      "sha256": "cf4730ee450a1cac6918c3dac0714a605dbd13057e28a5709ea840df39f738e9"
+    },
+    {
+      "path": "docs/evidence/improvement/before/narrow-decision.png",
+      "change": "added",
+      "sha256": "f500505de52996f6d31afa3003a601ce101e63390207d2ae327d43b8bf7845b8"
+    },
+    {
+      "path": "docs/evidence/improvement/before/narrow-start-full.png",
+      "change": "added",
+      "sha256": "a2adb9cdd5df30c9d394a3672bddf4c10ee0d20e95577ebc749b2b8f2de262a7"
+    },
+    {
+      "path": "docs/evidence/improvement/before/narrow-start.png",
+      "change": "added",
+      "sha256": "465969ce208e3281c423420b6c7f52734119de33ef3f81eca2721de1e187e220"
+    },
+    {
+      "path": "docs/evidence/improvement/before/test.log",
+      "change": "added",
+      "sha256": "c5c7c2be85a72fcbdc37a2c7ad6b2224a8676d3f3442161bdee2d96fbd10e640"
+    },
+    {
+      "path": "docs/evidence/improvement/historical/browser-first-run.json",
+      "change": "added",
+      "sha256": "2415b9bab1333218b2f07998a0a1d5d41e7ac62ddf710ee0ac2c82af9dabc714"
+    },
+    {
+      "path": "docs/evidence/improvement/historical/browser-results.json",
+      "change": "added",
+      "sha256": "b35b4c8f4e890f894bc26170318301249ba7d38ae05ae6ade2e56d7aa3137864"
+    },
+    {
+      "path": "docs/evidence/improvement/historical/desktop-complete.png",
+      "change": "added",
+      "sha256": "f322fffebc58175a034fd1ce1c2892ef0c77b290b5f944d1c7e396a469e0ede7"
+    },
+    {
+      "path": "docs/evidence/improvement/historical/desktop-start.png",
+      "change": "added",
+      "sha256": "0cfa14ae01881c0ee8c88d9ea39c1f16451e26ed07a5ca4b8c56876e23d62ee0"
+    },
+    {
+      "path": "docs/evidence/improvement/historical/narrow-complete.png",
+      "change": "added",
+      "sha256": "837573405e36cdfd3fdc205884b92bee54d7726905eda296cbae2828a38ef669"
+    },
+    {
+      "path": "docs/evidence/improvement/historical/README.md",
+      "change": "added",
+      "sha256": "46b2d9283588c02894c7b7fd99231533ba5f6a77706c4c704e73cb46c4f15f1e"
+    },
+    {
+      "path": "docs/evidence/improvement/historical/verification-results.json",
+      "change": "added",
+      "sha256": "dc38db353054eebf80513637ef3f360af297ab9c5fff31196a83d3b01aacf6a5"
+    },
+    {
+      "path": "docs/evidence/improvement/preview-verification.json",
+      "change": "added",
+      "sha256": "aa61c87754a7211f34ebcf3fc523d55a5fdab25412e9f20cf8e26d53c7480ddd"
+    },
+    {
+      "path": "docs/evidence/improvement/README.md",
+      "change": "added",
+      "sha256": "478cbac9c42481078b27f8e9f7d4ae25e43021799ee171f17c7ea0eb2d89e90e"
+    },
+    {
+      "path": "docs/evidence/improvement/schema-cached.log",
+      "change": "added",
+      "sha256": "feccce18222fe19abaa836cc7b1745e0ff128e349ea7a10c7e3b2b05ec683ff8"
+    },
+    {
+      "path": "docs/evidence/improvement/schema-final.log",
+      "change": "added",
+      "sha256": "a3205daabca6ea9d2e37bef665393aa16baf047ce17fb0e6ff23abea6d4702c8"
+    },
+    {
+      "path": "docs/evidence/improvement/schema-initial.log",
+      "change": "added",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "docs/evidence/improvement/schema-verification.json",
+      "change": "added",
+      "sha256": "599a7766bbcfb9826ee76ecaaa40626241e6ade56ee370d53339ff35a3e54382"
+    },
+    {
+      "path": "docs/evidence/README.md",
+      "change": "modified",
+      "sha256": "27559258372f0f1bc042e887c0d31b8387c236247240fc1781dd161c891746ba"
+    },
+    {
+      "path": "docs/improvement.md",
+      "change": "added",
+      "sha256": "7c35d4de5f3b563ddbcc599b122c6ae866b0dba8d0dbead09f70a98a5dd5706d"
+    },
+    {
+      "path": "README.md",
+      "change": "modified",
+      "sha256": "a0042ed4a5548684426524ce583ef091764de31d02becad170e084dd8f64af87"
+    },
+    {
+      "path": "scripts/browser-check.mjs",
+      "change": "modified",
+      "sha256": "c74d9986c4b52ffcb84d4905fbf93023e3df2f1241003f141af76b10c1b605e2"
+    },
+    {
+      "path": "scripts/capture-comparison.mjs",
+      "change": "added",
+      "sha256": "affe96c9493586b52ad621c2fd6dc6847abde721befcbdf307b0a2b85afdbe8d"
+    },
+    {
+      "path": "scripts/check.mjs",
+      "change": "modified",
+      "sha256": "37e1bd74c3b0baa769f90b9a9ceace24b2e42fe38cdf2159e4a22bf72f9d7e72"
+    },
+    {
+      "path": "scripts/interaction-check.mjs",
+      "change": "added",
+      "sha256": "3b956e263a8bbb13b1d50bcd769ce37e55dc9cdb6dbab9183742042a78bebd7e"
+    },
+    {
+      "path": "scripts/validate-design.py",
+      "change": "modified",
+      "sha256": "e718a00bb96db5b8c9b9bc656149ab298d58578d4e29f4c301d9ee41aad8bb5f"
+    },
+    {
+      "path": "scripts/verify-isolation.mjs",
+      "change": "added",
+      "sha256": "52567d689e570852899fc38930bf36d5f847fe9f0e1f62643e04523b8aaa1060"
+    },
+    {
+      "path": "scripts/verify-local.mjs",
+      "change": "added",
+      "sha256": "b858e3163fc98fdd9ebc3e32ec113d191fd974bb3de3e08e35142f6cfe62bf1f"
+    },
+    {
+      "path": "src/app.js",
+      "change": "modified",
+      "sha256": "3469626fca44a80ced72cb2c500350520e067bd1fa11e9240eefaa2ee5c4fc92"
+    },
+    {
+      "path": "src/style.css",
+      "change": "modified",
+      "sha256": "b762f67e364c3718c813bf1a8ce8c11c11faabced7ec2ad8549e0dba5e6a5222"
+    },
+    {
+      "path": "STATUS.md",
+      "change": "modified",
+      "sha256": "4e94586d200886aad9c5a005822e440f3db87e37c4291010ed2a9463ab7e4b5a"
+    },
+    {
+      "path": "tests/fixtures/revision-5-interactions.json",
+      "change": "added",
+      "sha256": "e6b6067082d39becd8975c06a950899aa05d852dceca54409d90ac876e0e86d6"
+    },
+    {
+      "path": "tests/interaction-contract.test.mjs",
+      "change": "added",
+      "sha256": "d26265ea8889100a3793fe5fc8d15ed448de8f5933b39adfad62d403a54d6149"
+    }
+  ],
+  "publication_redactions": "Local user-profile and cache paths were replaced with <user-profile> in this public repository copy after evaluation; runtime and verifier source hashes are unchanged.",
+  "publication_notes": "After evaluation, README wording was corrected for this Git worktree checkout. No game/runtime files changed after the recorded verification. The original isolated evaluation copy remains available locally."
+}

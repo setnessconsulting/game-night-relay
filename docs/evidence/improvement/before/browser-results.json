@@ -1,0 +1,196 @@
+{
+  "captured_at": "2026-10-19T03:49:27.184Z",
+  "identity": {
+    "algorithm": "sha256",
+    "build": "82948383638c577d87d26d119ea5472af13197be57b36b491168751e9d382e65",
+    "files": {
+      "index.html": "51d50eef4c6908599e6c28799403ccc94d25c62b3613154c3756d041ee72ad33",
+      "package.json": "cc03994d4cd9da97781f11bc266f4167be8042ea9a8c070f244dd198a30ba37e",
+      "package-lock.json": "4ab73e5894f8c2b157060b64ebcd14758e8cba02d726d511b442b74025732d36",
+      "src/app.js": "ae9fc482bd4bb59615fa3b0864145778eca74b3a9ab70d8432b354d05ad0e163",
+      "src/bootstrap.js": "1c6b1a851d8a28cfaf74d9d5872e1675a0fa5f98c982f86c62ca0d005f740bae",
+      "src/content.js": "ec10c0b67aa34f7f3749096b169f76f3eda066662101b1b42eb879a3f788ccbe",
+      "src/evaluator.js": "7282f0811cc9ac41c4af5694403c46422c8ed031182e7fe1b2d1ff8a0beee848",
+      "src/format.js": "3424aeba77f28c43186a2663b1d238289ac2ca8d9f04dc53f2fd147d6d5c7c3b",
+      "src/session.js": "b087d317ea7537d685d1fb6aa2a7aafed1db39718457e1672cf58b65d45c6cc7",
+      "src/style.css": "4610c5816da9b5ce018a6074a811a22daa840924a09fcf8ec3c864543a9cf92b"
+    }
+  },
+  "verification": {
+    "algorithm": "sha256",
+    "verifier": "89388cfcd84c06c59c8abb28118d8f1a4f8dd315ada8437c19ad7498604c4ddf",
+    "files": {
+      "scripts/browser-check.mjs": "7b5701391db237ccab397ada201d45ae78fea2e3ef3fdb327d7c08608d92177c",
+      "scripts/build-identity.mjs": "654972afab35ef77a9ad44eb7b615d847856e35bb061e147cdeddd0961b37978",
+      "scripts/check.mjs": "a457e0998b7875166fcf6675f567f55a8ba655855344a83704e688b4c5d9e0bf",
+      "scripts/extract-contract.mjs": "69ac50587f20958dc9f6436b3e3c4e36c8e87a84ad40a0561ccc22453e79b9c4",
+      "scripts/serve.mjs": "309bc3e01ceb779e12d76348c527b28cb168b1ac965dd7d17a6308a84ba1b95f",
+      "scripts/validate-design.py": "9c2e476ab915123b4ef1c4b4e5b5bb2ed7b70eb112d98596315712578589714a",
+      "tests/evaluator.test.mjs": "0edcc0b721f70d76eb309cbfe40b07d8878519709de453575f53777bcd1d09cd",
+      "tests/fixtures/revision-4-oracle.json": "7c010d39311ff72b58f9425a14ad5ff5d4056ca5ed7e29eee932662fc5dd3c6b",
+      "tests/oracle.mjs": "6c8891061210168b3b99669ef830648e9c3c102fe75248df0624221fd5e82c31",
+      "tests/session.test.mjs": "b0f4e768946dfe6e3cddd3ccf394193a28b01097e28e5fd712feedf39e728197"
+    }
+  },
+  "lane": "automated browser checks; not human accessibility or device acceptance",
+  "browsers": [
+    {
+      "engine": "Chromium",
+      "version": "156.0.8078.4"
+    },
+    {
+      "engine": "Firefox",
+      "result": "UNAVAILABLE",
+      "reason": "browserType.launch: Executable doesn't exist at <user-profile>\\AppData\\Local\\ms-playwright\\firefox-1555\\firefox\\firefox.exe"
+    },
+    {
+      "engine": "WebKit",
+      "result": "UNAVAILABLE",
+      "reason": "browserType.launch: Executable doesn't exist at <user-profile>\\AppData\\Local\\ms-playwright\\webkit-2370\\Playwright.exe"
+    }
+  ],
+  "checks": [
+    {
+      "name": "Blank start, independent native controls, authored sources, unique DOM targets",
+      "result": "PASS"
+    },
+    {
+      "name": "Blank Send, single result focus, exact source target and invoking-control restoration, revision focus",
+      "result": "PASS"
+    },
+    {
+      "name": "Mixed-error secondary rows, explicit reveal without correction, conclusion link and return",
+      "result": "PASS"
+    },
+    {
+      "name": "Submitted feedback remains stable during edits, assisted completion, inspect sources, explicit replay reset",
+      "result": "PASS"
+    },
+    {
+      "name": "All 324 connected UI outputs match independent oracle, including exact text/rows/link order/actions",
+      "result": "PASS"
+    },
+    {
+      "name": "Malformed control input reports an implementation failure and retains draft",
+      "result": "PASS"
+    },
+    {
+      "name": "Automated axe scan of mixed-error feedback",
+      "result": "PASS",
+      "incomplete": [
+        "color-contrast"
+      ]
+    },
+    {
+      "name": "Keyboard-only full loop: Tab, native radio arrows/Space, Enter Send",
+      "result": "PASS"
+    },
+    {
+      "name": "320 CSS pixel reflow and 200% root text enlargement; no horizontal document overflow",
+      "result": "PASS"
+    },
+    {
+      "name": "Measured representative text >=4.5:1 and control/focus palettes >=3:1",
+      "result": "PASS",
+      "samples": 10
+    },
+    {
+      "name": "Offline revision, completion and Replay; no subsequent requests, writes, cookies or learner storage",
+      "result": "PASS",
+      "initial_requests": 8,
+      "storage": {
+        "local": 0,
+        "session": 0,
+        "cookie": "",
+        "dbs": 0,
+        "caches": 0,
+        "workers": 0
+      }
+    },
+    {
+      "name": "Online reload clears draft; no restoration promise",
+      "result": "PASS"
+    }
+  ],
+  "limitations": [
+    "Desktop headless engines and emulated viewports; no physical iPad or Safari/VoiceOver/NVDA checks.",
+    "320 CSS pixel reflow and 200% text enlargement are proxies; actual 400% browser zoom and human assistive-technology review remain pending.",
+    "No intended-age learner, educator, disabled-player, owner-acceptance or release evidence."
+  ],
+  "axe": {
+    "version": "4.13.0",
+    "violations": [],
+    "incomplete": [
+      "color-contrast"
+    ]
+  },
+  "contrast": [
+    {
+      "selector": ".visitor",
+      "kind": "text",
+      "foreground": "rgb(36, 49, 61)",
+      "background": "rgb(252, 250, 244)",
+      "ratio": 12.720091956821559
+    },
+    {
+      "selector": ".hint",
+      "kind": "text",
+      "foreground": "rgb(82, 97, 113)",
+      "background": "rgb(255, 255, 255)",
+      "ratio": 6.349981566683702
+    },
+    {
+      "selector": ".source-link",
+      "kind": "text",
+      "foreground": "rgb(34, 78, 101)",
+      "background": "rgb(255, 255, 255)",
+      "ratio": 8.952593427535854
+    },
+    {
+      "selector": ".recipient p",
+      "kind": "text",
+      "foreground": "rgb(255, 247, 230)",
+      "background": "rgb(20, 31, 42)",
+      "ratio": 15.644353181135815
+    },
+    {
+      "selector": ".send",
+      "kind": "text",
+      "foreground": "rgb(255, 255, 255)",
+      "background": "rgb(34, 60, 71)",
+      "ratio": 11.632118161537845
+    },
+    {
+      "selector": ".card-eyebrow",
+      "kind": "text",
+      "foreground": "rgb(82, 97, 113)",
+      "background": "rgb(255, 255, 255)",
+      "ratio": 6.349981566683702
+    },
+    {
+      "kind": "control boundary",
+      "foreground": "rgb(116,128,138)",
+      "background": "rgb(255,255,255)",
+      "ratio": 4.040586748634029
+    },
+    {
+      "kind": "selected boundary",
+      "foreground": "rgb(48,78,89)",
+      "background": "rgb(238,244,242)",
+      "ratio": 7.991686190674178
+    },
+    {
+      "kind": "light focus",
+      "foreground": "rgb(7,94,170)",
+      "background": "rgb(255,255,255)",
+      "ratio": 6.5818928500233245
+    },
+    {
+      "kind": "dark focus",
+      "foreground": "rgb(243,191,98)",
+      "background": "rgb(20,31,42)",
+      "ratio": 9.879207141062798
+    }
+  ],
+  "result": "PASS"
+}

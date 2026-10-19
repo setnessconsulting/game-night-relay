@@ -1,23 +1,15 @@
-# Status - game-night-relay
+# Night Relay revision 5 status
 
-**As of:** 2026-10-19. Every field below was read from `origin/main` on that date; no product run,
-deploy, or test execution was performed to write this entry.
+Revision 5 and the immutable static packaging helper are committed in this repository. This file describes the local prototype state, not product acceptance or release status.
 
-This repository holds a placeholder `README.md` and this status document. No game, test, build,
-or contract exists yet.
+## Local implementation and verification
 
-## Repository facts
+The game is a local static browser app. Start it with `npm start`; play and verification instructions are in `README.md`.
 
-- **Last commit at read time:** `2c46b0e` 2026-10-17 - docs: add STATUS.md with the repository's measured state
-- **History:** 2 commits, 2 tracked files (this refresh adds one commit on top; it is the only change)
-- **Hosted CI:** none
-- **Automated checks invoked by CI:** none - this repository has no hosted workflow
-- **Completion contract:** No `DONE.md`: completion is undefined. `portfolio-metadata.json` should record `needs_definition` until a contract exists.
+The exact current local command results and file identities are recorded in `docs/evidence/improvement/after/verification-results.json` and `docs/evidence/improvement/after/browser-results.json`. They describe automated checks only. Chromium is the available browser lane; Firefox and WebKit are recorded separately when unavailable. The release packager checks these records against the exact runtime, package, lockfile and verifier files before creating a candidate.
 
-## Next step
+At the 2026-10-19 repository review, `main` had no hosted workflow, branch protection or ruleset. The live Jenkins catalog classified `setnessconsulting/game-night-relay` as `unmapped`; no Jenkins lane or check is claimed.
 
-Decide whether the game is started or its registry row is recorded as not started. A status document is the only sensible artifact until there is work to report.
+## Acceptance and release boundary
 
-## Boundary
-
-This file reports repository state, not product quality. A green build is not stability evidence, and nothing here asserts that a hosted surface was checked from outside.
+Intended-age playtesting, educator review, independent accessibility review, disabled-player feedback, actual assistive-technology and device checks, and owner acceptance remain pending. The proposed criterion matrix is not a formal completion contract. No learning-effectiveness, accessibility-conformance, release-readiness or deployment claim is made. Candidate packaging does not authorize production promotion.

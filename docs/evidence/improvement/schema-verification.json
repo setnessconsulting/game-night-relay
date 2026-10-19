@@ -1,0 +1,49 @@
+{
+  "captured_at": "2026-10-19T23:09:10.8853048Z",
+  "command": [
+    "<project-game-maker>/.venv/Scripts/python.exe",
+    "-B",
+    "scripts/validate-design.py",
+    "--game-maker-root",
+    "<project-game-maker>"
+  ],
+  "environment": {
+    "python": "3.12.13",
+    "PYTHONPATH": [
+      "<user-profile>/AppData/Local/uv/cache/archive-v0/9rMTMXASjft5eDJJ",
+      "<user-profile>/AppData/Local/uv/cache/archive-v0/775u4QUAvJPUWxZg",
+      "<user-profile>/AppData/Local/uv/cache/archive-v0/808GVrm7UL1z7wGo",
+      "<user-profile>/AppData/Local/uv/cache/archive-v0/Bj44d2LteXhzNu6l",
+      "<user-profile>/AppData/Local/uv/cache/archive-v0/cswnmpv4oyLn14hq"
+    ]
+  },
+  "exit_code": 0,
+  "result": {
+    "schema_sha256": "2ef17a852c7d14e1c97023553fcd9cdbb0a20aa1a9da6d672cda862c137d5102",
+    "scope": "Artifact validity only; no runtime or acceptance claim",
+    "artifacts": [
+      {
+        "file": "game-vision.json",
+        "sha256": "bf25a8f68e17c6f2ed99d0afd78ff9235bd2efb17c07325309e27b26fad5dd5b",
+        "contract": "PASS",
+        "schema": "PASS",
+        "artifact_result_state": "NOT_RUN"
+      },
+      {
+        "file": "vertical-slice-brief.json",
+        "sha256": "6f0264f6d765ddb5dd9dc0c57f6168064a78323824b6cad08c9cd1c3ff3a0e45",
+        "contract": "PASS",
+        "schema": "PASS",
+        "artifact_result_state": "NOT_RUN"
+      },
+      {
+        "file": "vertical-slice-brief-r5.json",
+        "sha256": "3f35747c6db2bf86137bf932392275c69ab9cc6f4c73e289d58fc8f247c27609",
+        "contract": "PASS",
+        "schema": "PASS",
+        "artifact_result_state": "NOT_RUN"
+      }
+    ]
+  },
+  "installation": "none; existing project-game-maker interpreter and cached libraries"
+}

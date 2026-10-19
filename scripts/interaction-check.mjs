@@ -1,0 +1,70 @@
+import assert from 'node:assert/strict';
+import { readFileSync } from 'node:fs';
+const cases=JSON.parse(readFileSync(new URL('../tests/fixtures/revision-5-interactions.json',import.meta.url)));
+export async function checkInteractions(page,note) {
+  const selected=()=>page.locator('input:checked').evaluateAll(inputs=>inputs.map(i=>[i.name,i.value]));
+  const issues=()=>page.locator('#issues > li').evaluateAll(rows=>rows.map(r=>r.dataset.issue));
+  assert.equal(await page.locator('#plan-step').isVisible(),true);
+  assert.equal(await page.locator('#reason-step').isVisible(),false);
+  await page.locator('.steps [data-step=reason]').click();
+  assert.deepEqual(await selected(),[]);
+  assert.equal(await page.locator('#feedback').isVisible(),false);
+  await page.locator('.steps [data-step=plan]').click();
+  for(const item of cases.sourceSelection) {
+    const button=page.locator(`[data-pin=${item.pin}]`);
+    await button.focus();
+    await page.keyboard.press('Enter');
+    assert.deepEqual(await selected(),item.selected);
+    assert.equal(await page.locator(`[data-pin=${item.pin}]`).getAttribute('aria-pressed'),'true');
+    assert.equal(await page.locator(`[data-pin=${item.pin}]`).evaluate(el=>el===document.activeElement),true);
+    assert.equal(await page.locator('#plan-step').isVisible(),true);
+    assert.equal(await page.locator('#feedback').isVisible(),false);
+  }
+  assert.equal(await page.locator('[data-pin=M1]').getAttribute('aria-pressed'),'false');
+  note('R5 source controls select only evidence, permit disconnected details, retain focus, and never infer a route or send');
+  await page.locator('.send').click();
+  assert.deepEqual(await issues(),cases.partialIssues);
+  const before=await selected();
+  await page.locator(`[data-code=${cases.repair.code}]`).focus();
+  await page.keyboard.press('Space');
+  assert.equal(await page.locator(`#${cases.repair.step}-step`).isVisible(),true);
+  assert.equal(await page.evaluate(()=>document.activeElement.name),cases.repair.field);
+  assert.deepEqual(await selected(),before);
+  assert.match(await page.locator('#repair-text').textContent(),/How do your guide and notice details connect/);
+  await page.locator('[data-clear=map_evidence]').click();
+  assert.equal(await page.locator('[data-pin=M2]').getAttribute('aria-pressed'),'false');
+  assert.deepEqual(await issues(),cases.partialIssues);
+  assert.match(await page.locator('#submission-note').textContent(),/last sent message/);
+  await page.locator('[data-pin=M2]').click();
+  await page.locator('#conclusion [data-target=route_guide]').click();
+  assert.equal(await page.evaluate(()=>document.activeElement.id),'route_guide');
+  await page.locator('#return-to-message').click();
+  assert.equal(await page.locator('#conclusion [data-target=route_guide]').evaluate(el=>el===document.activeElement),true);
+  note('R5 secondary-issue repair opens its hidden step with preserved draft; clear/pin synchronization and contextual source return work');
+  const fields=['path','gate','map_evidence','notice_evidence','conclusion'];
+  for(let i=0;i<fields.length;i++) {
+    await page.locator(`.steps [data-step=${i<2?'plan':'reason'}]`).click();
+    await page.locator(`input[name=${fields[i]}][value=${cases.completion.tuple[i]}]`).check();
+  }
+  await page.locator('.send').click();
+  assert.equal(await page.locator('#check-title').textContent(),cases.completion.heading);
+  assert.equal(await page.locator('#delivery').isVisible(),true);
+  const delivered=await page.locator('#delivered-message').textContent();
+  await page.locator('.steps [data-step=plan]').click();
+  await page.locator('input[name=path][value=North]').check();
+  assert.deepEqual((await selected()).slice(1),cases.staleEdit.otherFields);
+  assert.equal(await page.locator('#delivered-message').textContent(),delivered);
+  assert.match(await page.locator('#submission-note').textContent(),/last sent message/);
+  assert.equal(await page.locator('.map-route.chosen').getAttribute('data-route'),'North');
+  await page.locator('.send').click();
+  assert.deepEqual(await issues(),cases.afterResendIssues);
+  assert.equal(await page.locator('#delivery').isVisible(),false);
+  await page.getByRole('button',{name:'Replay',exact:true}).click();
+  assert.deepEqual(await selected(),[]);
+  assert.equal(await page.locator('[data-pin][aria-pressed=true]').count(),0);
+  assert.equal(await page.locator('.map-route.chosen').count(),0);
+  assert.equal(await page.locator('#repair-note').isVisible(),false);
+  assert.equal(await page.locator('#delivery').isVisible(),false);
+  assert.equal(await page.locator('#plan-step').isVisible(),true);
+  note('R5 completion stays bound to submitted choices; explicit resend removes completion; replay clears step, route and source markers');
+}
