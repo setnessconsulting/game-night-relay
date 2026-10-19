@@ -1,0 +1,109 @@
+{
+  "captured_at": "2026-10-19T03:55:57.589Z",
+  "identity": {
+    "algorithm": "sha256",
+    "build": "58030c8c2e41e137cce78fc8490af980f75d9d22fd93f9ab04d45998f3a39084",
+    "files": {
+      "index.html": "51d50eef4c6908599e6c28799403ccc94d25c62b3613154c3756d041ee72ad33",
+      "package.json": "cc03994d4cd9da97781f11bc266f4167be8042ea9a8c070f244dd198a30ba37e",
+      "package-lock.json": "4ab73e5894f8c2b157060b64ebcd14758e8cba02d726d511b442b74025732d36",
+      "src/app.js": "e7c4acb4de3deaba3502bc98059a1bb3960679313025ffdffa0e3e3e8150b1bd",
+      "src/bootstrap.js": "1c6b1a851d8a28cfaf74d9d5872e1675a0fa5f98c982f86c62ca0d005f740bae",
+      "src/content.js": "ec10c0b67aa34f7f3749096b169f76f3eda066662101b1b42eb879a3f788ccbe",
+      "src/evaluator.js": "7282f0811cc9ac41c4af5694403c46422c8ed031182e7fe1b2d1ff8a0beee848",
+      "src/format.js": "3424aeba77f28c43186a2663b1d238289ac2ca8d9f04dc53f2fd147d6d5c7c3b",
+      "src/session.js": "b087d317ea7537d685d1fb6aa2a7aafed1db39718457e1672cf58b65d45c6cc7",
+      "src/style.css": "b64f74b2b904dc6b93f5525fee6dda6894ba3cb8bfcdfc620c19b06c970acdee"
+    }
+  },
+  "verification": {
+    "algorithm": "sha256",
+    "verifier": "fd12a92541e26a5fd005b82b246523eb9aa2f5393a4d3c59a240205da1e9ed9c",
+    "files": {
+      "scripts/browser-check.mjs": "a5224d90d04c0c7751ca42692912932b665afc84e6a2706367dbb867b6d0e90e",
+      "scripts/build-identity.mjs": "654972afab35ef77a9ad44eb7b615d847856e35bb061e147cdeddd0961b37978",
+      "scripts/capture-comparison.mjs": "affe96c9493586b52ad621c2fd6dc6847abde721befcbdf307b0a2b85afdbe8d",
+      "scripts/check.mjs": "37e1bd74c3b0baa769f90b9a9ceace24b2e42fe38cdf2159e4a22bf72f9d7e72",
+      "scripts/extract-contract.mjs": "69ac50587f20958dc9f6436b3e3c4e36c8e87a84ad40a0561ccc22453e79b9c4",
+      "scripts/interaction-check.mjs": "f767919b77a643bc94da14035631cd129f60c0026cb2a0b6c27558fcdcc8bb07",
+      "scripts/serve.mjs": "309bc3e01ceb779e12d76348c527b28cb168b1ac965dd7d17a6308a84ba1b95f",
+      "scripts/validate-design.py": "e718a00bb96db5b8c9b9bc656149ab298d58578d4e29f4c301d9ee41aad8bb5f",
+      "tests/evaluator.test.mjs": "0edcc0b721f70d76eb309cbfe40b07d8878519709de453575f53777bcd1d09cd",
+      "tests/fixtures/revision-4-oracle.json": "7c010d39311ff72b58f9425a14ad5ff5d4056ca5ed7e29eee932662fc5dd3c6b",
+      "tests/fixtures/revision-5-interactions.json": "e6b6067082d39becd8975c06a950899aa05d852dceca54409d90ac876e0e86d6",
+      "tests/interaction-contract.test.mjs": "d26265ea8889100a3793fe5fc8d15ed448de8f5933b39adfad62d403a54d6149",
+      "tests/oracle.mjs": "6c8891061210168b3b99669ef830648e9c3c102fe75248df0624221fd5e82c31",
+      "tests/session.test.mjs": "b0f4e768946dfe6e3cddd3ccf394193a28b01097e28e5fd712feedf39e728197"
+    }
+  },
+  "lane": "automated browser checks; not human accessibility or device acceptance",
+  "browsers": [
+    {
+      "engine": "Chromium",
+      "version": "156.0.8078.4"
+    }
+  ],
+  "checks": [
+    {
+      "name": "Blank start, independent native controls, authored sources, unique DOM targets",
+      "result": "PASS"
+    },
+    {
+      "name": "Blank Send, single result focus, exact source target and invoking-control restoration, revision focus",
+      "result": "PASS"
+    },
+    {
+      "name": "Mixed-error secondary rows, explicit reveal without correction, conclusion link and return",
+      "result": "PASS"
+    },
+    {
+      "name": "Submitted feedback remains stable during edits, assisted completion, inspect sources, explicit replay reset",
+      "result": "PASS"
+    },
+    {
+      "name": "R5 source controls select only evidence, permit disconnected details, retain focus, and never infer a route or send",
+      "result": "PASS"
+    },
+    {
+      "name": "R5 secondary-issue repair opens its hidden step with preserved draft; clear/pin synchronization and contextual source return work",
+      "result": "PASS"
+    },
+    {
+      "name": "R5 completion stays bound to submitted choices; explicit resend removes completion; replay clears step, route and source markers",
+      "result": "PASS"
+    },
+    {
+      "name": "All 324 connected UI outputs match independent oracle, including exact text/rows/link order/actions",
+      "result": "PASS"
+    },
+    {
+      "name": "Malformed control input reports an implementation failure and retains draft",
+      "result": "PASS"
+    },
+    {
+      "name": "Automated axe scan of mixed-error feedback",
+      "result": "PASS",
+      "incomplete": [
+        "color-contrast"
+      ]
+    },
+    {
+      "name": "Keyboard-only full loop: Tab, native radio arrows/Space, Enter Send",
+      "result": "PASS"
+    }
+  ],
+  "limitations": [
+    "Desktop headless engines and emulated viewports; no physical iPad or Safari/VoiceOver/NVDA checks.",
+    "320 CSS pixel reflow and 200% text enlargement are proxies; actual 400% browser zoom and human assistive-technology review remain pending.",
+    "No intended-age learner, educator, disabled-player, owner-acceptance or release evidence."
+  ],
+  "axe": {
+    "version": "4.13.0",
+    "violations": [],
+    "incomplete": [
+      "color-contrast"
+    ]
+  },
+  "result": "FAIL",
+  "error": "AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:\n\nfalse !== true\n\n    at checkInteractions (file:///<user-profile>/Desktop/AI%20Projects/02-setnessconsulting/_worktrees/game-night-relay-improved-20261018/scripts/interaction-check.mjs:7:10)\n    at async file:///<user-profile>/Desktop/AI%20Projects/02-setnessconsulting/_worktrees/game-night-relay-improved-20261018/scripts/browser-check.mjs:183:3"
+}

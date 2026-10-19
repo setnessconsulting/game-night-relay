@@ -1,0 +1,13 @@
+{
+  "provenance": "Authored interaction expectations before executing the new browser checks; no implementation output or evaluator call used to produce these values.",
+  "sourceSelection": [
+    {"pin":"M1","selected":[["map_evidence","M1"]]},
+    {"pin":"N1","selected":[["map_evidence","M1"],["notice_evidence","N1"]]},
+    {"pin":"M2","selected":[["map_evidence","M2"],["notice_evidence","N1"]]}
+  ],
+  "partialIssues": ["MISSING_PATH","MISSING_GATE","MISSING_CONCLUSION"],
+  "repair": {"code":"MISSING_CONCLUSION","field":"conclusion","step":"reason"},
+  "completion": {"tuple":["South","Bell","M2","N1","C1"],"heading":"Message complete"},
+  "staleEdit": {"field":"path","value":"North","otherFields":[["gate","Bell"],["map_evidence","M2"],["notice_evidence","N1"],["conclusion","C1"]]},
+  "afterResendIssues": ["ROUTE_GATE_CONFLICT","CONCLUSION_ADMISSION_CONFLICT","MAP_EVIDENCE_IRRELEVANT","NOTICE_EVIDENCE_IRRELEVANT","WRONG_ENTRANCE"]
+}

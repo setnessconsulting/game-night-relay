@@ -1,0 +1,343 @@
+{
+  "contract_type": "GameVision",
+  "schema_version": "1.0",
+  "artifact_id": "game-night-relay-game-vision-20261018",
+  "profile_version": "1.0",
+  "authority_snapshot_ref": {
+    "snapshot_id": "design-inputs-game-night-relay-20261018-revision-3",
+    "snapshot_hash": "sha256:c956a0784db9f3c1e17cb8689524fe6902c6a7a110acbd83629af678ea36e895",
+    "captured_at": "2026-10-18T22:00:34Z"
+  },
+  "captured_at": "2026-10-18T22:00:34Z",
+  "producer": "creative-director",
+  "evidence_class": "proposal",
+  "result_state": "NOT_RUN",
+  "provenance": {
+    "contract_type": "ProvenanceReference",
+    "schema_version": "1.0",
+    "provenance_id": "game-night-relay-vision-provenance-20261018",
+    "source_refs": [
+      {
+        "source_id": "game-night-relay-readme",
+        "authority": "GitHub: setnessconsulting/game-night-relay",
+        "locator": "https://github.com/setnessconsulting/game-night-relay/blob/2c46b0eb4c1e83585e234f891c92eb3498ce3802/README.md",
+        "observed_at": "2026-10-18T22:00:34Z",
+        "revision": "design-worktree-base@2c46b0eb4c1e83585e234f891c92eb3498ce3802; inspected locally; not a live-main claim",
+        "git_commit_sha": "2c46b0eb4c1e83585e234f891c92eb3498ce3802",
+        "git_blob_sha": "6104e9f1a1b14fce47e0330464000ada2c6d88d0",
+        "content_hash": "sha256:00c6ae2ed95a2efc96c315b8e20e44d9f6c4cd03161290d953fa9dc13ee5f2e4",
+        "freshness": "current",
+        "identity_status": "known"
+      },
+      {
+        "source_id": "game-night-relay-status",
+        "authority": "GitHub: setnessconsulting/game-night-relay",
+        "locator": "https://github.com/setnessconsulting/game-night-relay/blob/2c46b0eb4c1e83585e234f891c92eb3498ce3802/STATUS.md",
+        "observed_at": "2026-10-18T22:00:34Z",
+        "revision": "design-worktree-base@2c46b0eb4c1e83585e234f891c92eb3498ce3802; inspected locally; not a live-main claim",
+        "git_commit_sha": "2c46b0eb4c1e83585e234f891c92eb3498ce3802",
+        "git_blob_sha": "69c8c3209d9c86ef4db6800db4cc37f00949fcae",
+        "content_hash": "sha256:e07ab9abe817888edd6c95118e08dfc1783a9c67ca0ee2ab8626c52f689529e5",
+        "freshness": "current",
+        "identity_status": "known"
+      },
+      {
+        "source_id": "game-maker-template-guidance",
+        "authority": "GitHub: setnessconsulting/project-game-maker",
+        "locator": "https://github.com/setnessconsulting/project-game-maker/blob/2ffdd9802a8d42c7e18df509141bceb8c71eb22b/templates/README.md",
+        "observed_at": "2026-10-18T22:00:34Z",
+        "revision": "main@2ffdd9802a8d42c7e18df509141bceb8c71eb22b; local clean HEAD matched remote main",
+        "git_commit_sha": "2ffdd9802a8d42c7e18df509141bceb8c71eb22b",
+        "git_blob_sha": "be83ebe752b80eef2d9f59a6646219efe4813e1b",
+        "content_hash": null,
+        "freshness": "current",
+        "identity_status": "known"
+      },
+      {
+        "source_id": "game-vision-template-v1",
+        "authority": "GitHub: setnessconsulting/project-game-maker",
+        "locator": "https://github.com/setnessconsulting/project-game-maker/blob/2ffdd9802a8d42c7e18df509141bceb8c71eb22b/templates/game-vision/template-v1.json",
+        "observed_at": "2026-10-18T22:00:34Z",
+        "revision": "main@2ffdd9802a8d42c7e18df509141bceb8c71eb22b; local clean HEAD matched remote main",
+        "git_commit_sha": "2ffdd9802a8d42c7e18df509141bceb8c71eb22b",
+        "git_blob_sha": "fff90f037513a30d0af63bd1b88ca6b49727144f",
+        "content_hash": null,
+        "freshness": "current",
+        "identity_status": "known"
+      },
+      {
+        "source_id": "vertical-slice-template-v1",
+        "authority": "GitHub: setnessconsulting/project-game-maker",
+        "locator": "https://github.com/setnessconsulting/project-game-maker/blob/2ffdd9802a8d42c7e18df509141bceb8c71eb22b/templates/vertical-slice-brief/template-v1.json",
+        "observed_at": "2026-10-18T22:00:34Z",
+        "revision": "main@2ffdd9802a8d42c7e18df509141bceb8c71eb22b; local clean HEAD matched remote main",
+        "git_commit_sha": "2ffdd9802a8d42c7e18df509141bceb8c71eb22b",
+        "git_blob_sha": "d07be8ca57dcf1390117c218e48e5a55178a78f7",
+        "content_hash": null,
+        "freshness": "current",
+        "identity_status": "known"
+      },
+      {
+        "source_id": "game-maker-contract-schema-v1",
+        "authority": "GitHub: setnessconsulting/project-game-maker",
+        "locator": "https://github.com/setnessconsulting/project-game-maker/blob/2ffdd9802a8d42c7e18df509141bceb8c71eb22b/schemas/v1/game-maker-contracts-v1.schema.json",
+        "observed_at": "2026-10-18T22:00:34Z",
+        "revision": "main@2ffdd9802a8d42c7e18df509141bceb8c71eb22b; local clean HEAD matched remote main",
+        "git_commit_sha": "2ffdd9802a8d42c7e18df509141bceb8c71eb22b",
+        "git_blob_sha": "52476023c6fdf73f17b8704349123864f80dcbeb",
+        "content_hash": null,
+        "freshness": "current",
+        "identity_status": "known"
+      },
+      {
+        "source_id": "games-portfolio-catalog",
+        "authority": "GitHub: setnessconsulting/games-site",
+        "locator": "https://github.com/setnessconsulting/games-site/blob/b61f0ccd13440a486696403e4ea484d226dd8b3b/src/data/games.ts",
+        "observed_at": "2026-10-18T22:00:34Z",
+        "revision": "main@b61f0ccd13440a486696403e4ea484d226dd8b3b; local clean HEAD matched remote main",
+        "git_commit_sha": "b61f0ccd13440a486696403e4ea484d226dd8b3b",
+        "git_blob_sha": "9221063cff9b153092a9f6aef6164a8aa95687f3",
+        "content_hash": "sha256:8384e429314a75b47c8b0a7bf9d15a1cba578276ec559667f823d8c98106a87a",
+        "freshness": "current",
+        "identity_status": "known"
+      },
+      {
+        "source_id": "ccss-ri-4",
+        "authority": "Common Core State Standards Initiative official website",
+        "locator": "https://www.thecorestandards.org/ELA-Literacy/RI/4/",
+        "observed_at": "2026-10-18T22:00:34Z",
+        "revision": "official-page-observed-2026-10-18",
+        "git_commit_sha": null,
+        "git_blob_sha": null,
+        "content_hash": null,
+        "freshness": "current",
+        "identity_status": "known"
+      },
+      {
+        "source_id": "game-maker-standard-validator",
+        "authority": "GitHub: setnessconsulting/project-game-maker",
+        "locator": "https://github.com/setnessconsulting/project-game-maker/blob/2ffdd9802a8d42c7e18df509141bceb8c71eb22b/src/game_maker/contracts.py",
+        "observed_at": "2026-10-18T22:00:34Z",
+        "revision": "main@2ffdd9802a8d42c7e18df509141bceb8c71eb22b; local clean HEAD matched remote main",
+        "git_commit_sha": "2ffdd9802a8d42c7e18df509141bceb8c71eb22b",
+        "git_blob_sha": "0b80536e6d1392f94002ed53714351d76428c9be",
+        "content_hash": null,
+        "freshness": "current",
+        "identity_status": "known"
+      }
+    ],
+    "producer": "Codex desktop",
+    "generated_at": "2026-10-18T22:00:34Z",
+    "generator": "Codex desktop",
+    "model_tag": "GPT-6",
+    "model_digest": null,
+    "prompt_ref": null,
+    "license_status": "unknown",
+    "human_modified": "unknown",
+    "source_artifact_id": null,
+    "engine_destination": null,
+    "jira_issue_key": null,
+    "git_commit_sha": null,
+    "retention": {
+      "classification": "audit",
+      "required_fields": [
+        "artifact_id",
+        "source_refs",
+        "result_state",
+        "limitations"
+      ],
+      "raw_payload_stored": false,
+      "secret_bearing": false
+    }
+  },
+  "payload": {
+    "title": "Night Relay: The Last Lantern Post",
+    "one_line_pitch": "Help a festival visitor reach the last lantern: combine a route guide and tonight's notice, then send directions with a reason they can trust.",
+    "target_player": "Proposal awaiting owner approval: Grade 4, approximately ages 9-10, in a short classroom or home session. Two short texts and structured choices may suit supported informational reading; text complexity, age fit and independent-reading demands are unverified.",
+    "target_subject": "Proposed ELA: interpret and combine informational sources to communicate an actionable plan with a source-supported explanation. Spelling, typing speed and arithmetic are not measured.",
+    "target_players_and_mode": "Proposed solo browser session with one authored simulated recipient; no online play or pass-and-play.",
+    "core_loop": "Read the visitor request and two sources; choose a path and entrance; compose directions and a because-explanation using one relevant detail from each source; send; inspect the recipient interpretation and source check; revise and resend or replay.",
+    "design_pillars": [
+      "Each source matters: the map connects paths to gates; the notice identifies tonight's visitor entrance.",
+      "Explain the plan: directions and a because-clause connect a relevant detail from each source.",
+      "Repair with evidence: the recipient reflects the message; targeted source links support untimed revision."
+    ],
+    "learning_goal": "Given a visitor request, written route guide with equivalent map, and separate festival notice, infer which step-free path reaches the visitor entrance and communicate the path, gate and reason using relevant details from both sources.",
+    "player_decisions": [
+      "Which path reaches the gate admitting visitors tonight?",
+      "Which map and notice details support the plan, and what conclusion connects them?"
+    ],
+    "repeatable_feedback_and_recovery": "Distinguish complete, incomplete, wrong-entrance, contradictory and unsupported messages using the slice response cases. Preserve the draft and link relevant sources. An omitted explanation is not a fictional navigation failure.",
+    "smallest_complete_vertical_slice": "One visitor, two step-free paths to different gates, one route guide/map, one notice, one route-and-entrance decision with an evidence-linked explanation, authored feedback, revision and replay. Detailed content and acceptance requirements are in the VerticalSliceBrief.",
+    "portfolio_differentiation": [
+      {
+        "game": "Math Detective",
+        "portfolio_claim": "Catalog describes following clues, solving math and cracking a case.",
+        "source_ref": "games-portfolio-catalog",
+        "source_file": "games-site/src/data/games.ts: entry math-detective, description and controls",
+        "difference": "Shares inspect-and-choose interaction. Proposed distinction is communicating a plan to a recipient and repairing its explanation using written sources."
+      },
+      {
+        "game": "Motion Lab",
+        "portfolio_claim": "Catalog describes controlled cart-and-track experiments, changing one variable, measuring and comparing trials to support claims.",
+        "source_ref": "games-portfolio-catalog",
+        "source_file": "games-site/src/data/games.ts: entry MOTION_LAB_SLUG, description",
+        "difference": "Shares evidence-supported reasoning. This proposal interprets fixed authored information for another person rather than generating experimental evidence."
+      },
+      {
+        "game": "Weather Command",
+        "portfolio_claim": "Catalog describes inspecting atmospheric evidence, forecasting and comparison with a simulated weather system.",
+        "source_ref": "games-portfolio-catalog",
+        "source_file": "games-site/src/data/games.ts: entry weather-command, description",
+        "difference": "Shares decision and feedback structure. This proposal evaluates support and clarity of a directions message rather than forecast agreement."
+      },
+      {
+        "game": "Planetary Survey",
+        "portfolio_claim": "Catalog describes measuring worlds, keeping evidence, comparing results and supporting a claim.",
+        "source_ref": "games-portfolio-catalog",
+        "source_file": "games-site/src/data/games.ts: entry PLANETARY_SURVEY_SLUG, description",
+        "difference": "Evidence-and-claim loops already exist in the catalog. The proposed differentiator is audience-aware communication and clarification; no portfolio-wide uniqueness claim is made."
+      }
+    ],
+    "curriculum_alignment": [
+      {
+        "standard_id": "CCSS.ELA-Literacy.RI.4.1",
+        "alignment": "Proposed partial alignment: support a route explanation with accurate, relevant source details.",
+        "direct_mechanic": "Require the South Path-to-Bell Gate detail M2, the Bell Gate visitor-entry detail N1, and conclusion C1 connecting them. Choosing the correct route alone does not complete the task.",
+        "source_ref": "ccss-ri-4",
+        "status": "proposal; owner and educator review pending; no learner evidence"
+      },
+      {
+        "standard_id": "CCSS.ELA-Literacy.RI.4.9",
+        "alignment": "Proposed partial alignment: combine two informational texts about visiting the lantern post into an actionable message.",
+        "direct_mechanic": "A written route guide with equivalent map supplies path connections; a separate notice supplies admission rules. The player composes a plan and reason using both. Structured choices offer limited composition evidence, not independent writing mastery.",
+        "source_ref": "ccss-ri-4",
+        "status": "proposal; educator must confirm source adequacy and scaffolding; no learner evidence"
+      }
+    ],
+    "accessibility_approach": [
+      "Require keyboard and assistive-technology access to the entire loop, equivalent route information, visible non-color states, readable resizing, persistent untimed feedback and recoverable focus. Concrete criteria are in the VerticalSliceBrief; none are claimed tested."
+    ],
+    "scope_and_non_goals": {
+      "in_scope": [
+        "one fictional festival scenario",
+        "one visitor request",
+        "one route guide with equivalent map plus one notice",
+        "one route-and-entrance choice and structured supported explanation",
+        "authored recipient interpretation, source check, revision and replay"
+      ],
+      "out_of_scope": [
+        "real-world route or event information",
+        "web search or user-generated content",
+        "accounts or personal data",
+        "online multiplayer",
+        "leaderboards",
+        "multiple scenarios or progression",
+        "teacher dashboards or authoring tools",
+        "full curriculum coverage",
+        "production or deployment",
+        "spelling, typing-speed or arithmetic assessment",
+        "free-text grading or generated recipient dialogue",
+        "final implementation plan in this revision"
+      ]
+    },
+    "success_signals": [
+      "Proposed observation: distinguish viable route selection from relevant source selection and a valid connection between the details.",
+      "Separate first attempt, prompted revision and same-scenario replay. No spelling, typing-speed or response-time score; no mastery or transfer inference."
+    ],
+    "main_risk": "Structured choices may permit guessing and answer memorization. Require a connected explanation and distinguish first attempts from assisted repair. Source necessity is a design property, not evidence of learning.",
+    "unresolved_owner_decisions": [
+      {
+        "decision": "Audience and setting",
+        "status": "unresolved",
+        "recommended_default": "Grade 4, approximately ages 9-10, in a short solo classroom or home browser session with optional adult support.",
+        "consequence": "Use two short sources and structured sentences; educator review and intended-age observation must establish reading load and age fit."
+      },
+      {
+        "decision": "Subject and jurisdiction",
+        "status": "unresolved",
+        "recommended_default": "ELA informational reading with proposed partial RI.4.1 and RI.4.9 mapping, subject to jurisdiction confirmation.",
+        "consequence": "Assess source-supported explanation and integration only; no claim of coverage, mastery, writing proficiency or learning effectiveness."
+      },
+      {
+        "decision": "Title, tone and visitor portrayal",
+        "status": "unresolved",
+        "recommended_default": "Keep Night Relay: The Last Lantern Post, a calm fictional festival and an explicit step-free need; both routes are step-free.",
+        "consequence": "Difficulty comes from route/entrance integration. Educator and disabled-player review must assess clarity and respectful portrayal before content acceptance."
+      },
+      {
+        "decision": "Primary challenge and mode",
+        "status": "unresolved",
+        "recommended_default": "One solo route-and-entrance decision communicated with a supported explanation; fixed authored feedback and unlimited untimed revision.",
+        "consequence": "Exclude free-text grading, generated dialogue, arithmetic, speed scoring, multiplayer and progression. Same-scenario replay cannot establish transfer."
+      },
+      {
+        "decision": "Acceptance owner, target and completion contract",
+        "status": "unresolved",
+        "recommended_default": "Owner names the product acceptance owner; browser delivery with a full offline session after initial load. Proposed support matrix: Windows Edge/Chrome with keyboard and NVDA, plus iPad Safari/VoiceOver.",
+        "consequence": "Exact supported versions, device availability and completion contract must be agreed before implementation acceptance. No engine choice, technical architecture or release authorization is implied."
+      },
+      {
+        "decision": "Review and release boundaries",
+        "status": "unresolved",
+        "recommended_default": "Keep educator/content review, intended-age observation, independent accessibility review with disabled-player feedback, and owner product acceptance separate; release remains a later owner decision.",
+        "consequence": "Use this proposal for a separate planning discussion with assumptions visible. Neither schema validity nor this revision supplies human approval."
+      }
+    ],
+    "design_basis_manifest": "design-input-snapshot-v1\ngame-night-relay-readme=https://github.com/setnessconsulting/game-night-relay/blob/2c46b0eb4c1e83585e234f891c92eb3498ce3802/README.md;git-blob=6104e9f1a1b14fce47e0330464000ada2c6d88d0;content=sha256:00c6ae2ed95a2efc96c315b8e20e44d9f6c4cd03161290d953fa9dc13ee5f2e4\ngame-night-relay-status=https://github.com/setnessconsulting/game-night-relay/blob/2c46b0eb4c1e83585e234f891c92eb3498ce3802/STATUS.md;git-blob=69c8c3209d9c86ef4db6800db4cc37f00949fcae;content=sha256:e07ab9abe817888edd6c95118e08dfc1783a9c67ca0ee2ab8626c52f689529e5\ngame-maker-template-guidance=https://github.com/setnessconsulting/project-game-maker/blob/2ffdd9802a8d42c7e18df509141bceb8c71eb22b/templates/README.md;git-blob=be83ebe752b80eef2d9f59a6646219efe4813e1b;content=null\ngame-vision-template-v1=https://github.com/setnessconsulting/project-game-maker/blob/2ffdd9802a8d42c7e18df509141bceb8c71eb22b/templates/game-vision/template-v1.json;git-blob=fff90f037513a30d0af63bd1b88ca6b49727144f;content=null\nvertical-slice-template-v1=https://github.com/setnessconsulting/project-game-maker/blob/2ffdd9802a8d42c7e18df509141bceb8c71eb22b/templates/vertical-slice-brief/template-v1.json;git-blob=d07be8ca57dcf1390117c218e48e5a55178a78f7;content=null\ngame-maker-contract-schema-v1=https://github.com/setnessconsulting/project-game-maker/blob/2ffdd9802a8d42c7e18df509141bceb8c71eb22b/schemas/v1/game-maker-contracts-v1.schema.json;git-blob=52476023c6fdf73f17b8704349123864f80dcbeb;content=null\ngames-portfolio-catalog=https://github.com/setnessconsulting/games-site/blob/b61f0ccd13440a486696403e4ea484d226dd8b3b/src/data/games.ts;git-blob=9221063cff9b153092a9f6aef6164a8aa95687f3;content=sha256:8384e429314a75b47c8b0a7bf9d15a1cba578276ec559667f823d8c98106a87a\nccss-ri-4=https://www.thecorestandards.org/ELA-Literacy/RI/4/;git-blob=null;content=null\ngame-maker-standard-validator=https://github.com/setnessconsulting/project-game-maker/blob/2ffdd9802a8d42c7e18df509141bceb8c71eb22b/src/game_maker/contracts.py;git-blob=0b80536e6d1392f94002ed53714351d76428c9be;content=null\nstandards=RI.4.1,RI.4.9 proposed partial;RI.4.3,RI.4.7,RI.4.8 not claimed\nobserved=2026-10-18T22:00:34Z",
+    "project_profile_status": "unknown; no project-specific profile found in the inspected worktree; profile_version 1.0 is an envelope value, not owner approval.",
+    "curriculum_not_claimed": [
+      {
+        "standard_id": "CCSS.ELA-Literacy.RI.4.3",
+        "reason": "Removed: the task does not directly explain what happened and why in a historical, scientific or technical text."
+      },
+      {
+        "standard_id": "CCSS.ELA-Literacy.RI.4.7",
+        "reason": "Not claimed: the map supports route interpretation, but the task does not separately require explaining how a visual contributes to the text in which it appears. The written guide supports the same decision."
+      },
+      {
+        "standard_id": "CCSS.ELA-Literacy.RI.4.8",
+        "reason": "Remains unclaimed: supporting the player's plan does not analyze how an author supports points."
+      }
+    ],
+    "template_basis": {
+      "template_id": "game-vision",
+      "template_version": "1.0",
+      "governing_schema": "schemas/v1/game-maker-contracts-v1.schema.json",
+      "governing_definition": "GameVision",
+      "validator": "game_maker.contracts.validate_contract",
+      "source_ref": "game-maker-standard-validator"
+    }
+  },
+  "evidence": [],
+  "findings": [],
+  "limitations": [
+    "Codex revision of the existing proposal; this session does not establish Astra authorship or human approval. Prior concept attribution was not independently verified.",
+    "No implementation, game tests, browser walkthrough, learner observation, educator review, independent science review or accessibility review was performed for this revision.",
+    "Luna Max findings are unavailable in this session. Independent Luna Max review is pending; this revision and its self-check are not that review.",
+    "Audience, subject, reading level, jurisdiction, portrayal, platform and completion contract remain proposals awaiting owner decisions.",
+    "Artifact/schema validation concerns document structure and contract safety only; no learning effectiveness, accessibility conformance, runtime quality or approval follows.",
+    "The snapshot hash binds the input manifest only, not owner authorization or an approved project profile. profile_version is an envelope value; no project-specific profile was found.",
+    "Portfolio comparisons concern cited catalog descriptions, not observed gameplay or complete portfolio uniqueness. STATUS.md is historical and is not current file-count or CI evidence."
+  ],
+  "invalidation_rules": [
+    {
+      "rule_id": "vision-portfolio-refresh",
+      "trigger": "source_changed",
+      "description": "Reassess portfolio differentiation if the cited games portfolio catalog changes.",
+      "source_ref": null
+    },
+    {
+      "rule_id": "vision-schema-refresh",
+      "trigger": "schema_changed",
+      "description": "Revalidate against the current Game Maker schema and template versions before downstream use.",
+      "source_ref": null
+    },
+    {
+      "rule_id": "vision-owner-decision",
+      "trigger": "manual",
+      "description": "Revise if the owner selects a different concept, age range, curriculum target, or player mode.",
+      "source_ref": null
+    }
+  ]
+}

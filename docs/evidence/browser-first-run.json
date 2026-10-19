@@ -1,0 +1,73 @@
+{
+  "captured_at": "2026-10-19T03:10:13.866Z",
+  "identity": {
+    "algorithm": "sha256",
+    "build": "a46280154e692199f7b937e0d928c9d1c21e2eb69872875eb014a89c46997570",
+    "files": {
+      "index.html": "51d50eef4c6908599e6c28799403ccc94d25c62b3613154c3756d041ee72ad33",
+      "package.json": "cc03994d4cd9da97781f11bc266f4167be8042ea9a8c070f244dd198a30ba37e",
+      "package-lock.json": "4ab73e5894f8c2b157060b64ebcd14758e8cba02d726d511b442b74025732d36",
+      "src/app.js": "ae9fc482bd4bb59615fa3b0864145778eca74b3a9ab70d8432b354d05ad0e163",
+      "src/bootstrap.js": "1c6b1a851d8a28cfaf74d9d5872e1675a0fa5f98c982f86c62ca0d005f740bae",
+      "src/content.js": "ec10c0b67aa34f7f3749096b169f76f3eda066662101b1b42eb879a3f788ccbe",
+      "src/evaluator.js": "7282f0811cc9ac41c4af5694403c46422c8ed031182e7fe1b2d1ff8a0beee848",
+      "src/format.js": "3424aeba77f28c43186a2663b1d238289ac2ca8d9f04dc53f2fd147d6d5c7c3b",
+      "src/session.js": "e5691bbe6b71eecc7d40747b70c178a267d8a94627fd5f72cb57cd97c3e3e38e",
+      "src/style.css": "4610c5816da9b5ce018a6074a811a22daa840924a09fcf8ec3c864543a9cf92b"
+    }
+  },
+  "lane": "automated browser checks; not human accessibility or device acceptance",
+  "browsers": [
+    {
+      "engine": "Chromium",
+      "version": "156.0.8078.4"
+    }
+  ],
+  "checks": [
+    {
+      "name": "Blank start, independent native controls, authored sources, unique DOM targets",
+      "result": "PASS"
+    },
+    {
+      "name": "Blank Send, single result focus, exact source target and invoking-control restoration, revision focus",
+      "result": "PASS"
+    },
+    {
+      "name": "Mixed-error secondary rows, explicit reveal without correction, conclusion link and return",
+      "result": "PASS"
+    },
+    {
+      "name": "Submitted feedback remains stable during edits, assisted completion, inspect sources, explicit replay reset",
+      "result": "PASS"
+    },
+    {
+      "name": "All 324 connected UI outputs match independent oracle, including exact text/rows/link order/actions",
+      "result": "PASS"
+    },
+    {
+      "name": "Malformed control input reports an implementation failure and retains draft",
+      "result": "PASS"
+    },
+    {
+      "name": "Automated axe scan of mixed-error feedback",
+      "result": "PASS",
+      "incomplete": [
+        "color-contrast"
+      ]
+    }
+  ],
+  "limitations": [
+    "Desktop headless engines and emulated viewports; no physical iPad or Safari/VoiceOver/NVDA checks.",
+    "320 CSS pixel reflow and 200% text enlargement are proxies; actual 400% browser zoom and human assistive-technology review remain pending.",
+    "No intended-age learner, educator, disabled-player, owner-acceptance or release evidence."
+  ],
+  "axe": {
+    "version": "4.13.0",
+    "violations": [],
+    "incomplete": [
+      "color-contrast"
+    ]
+  },
+  "result": "FAIL",
+  "error": "AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:\n\n'N2' !== 'N1'\n\n    at file:///<user-profile>/Desktop/AI%20Projects/02-setnessconsulting/_worktrees/game-night-relay-slice-20261018/scripts/browser-check.mjs:143:12"
+}

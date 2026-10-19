@@ -1,21 +1,31 @@
-# Status - game-night-relay
+# Night Relay local improvement status
 
-**As of:** 2026-10-17. Every field below was read from this repository at that date; no product run, deploy, or test execution was performed to write this entry.
+The revision-5 interaction is implemented in the isolated directory
+`game-night-relay-improved-20261018`. It preserves the exact dirty baseline from
+`game-night-relay-slice-20261018`; it is not a new Git commit or PR.
 
-This repository currently holds a single tracked file, `README.md`. No game, test, build, or contract exists yet.
+The loop now separates route planning from explaining, allows direct evidence
+selection in both sources, keeps the map at narrow widths, offers per-issue
+repair with preserved choices, and presents the completed submitted message.
+The evaluator and all authored revision-4 expected outputs remain unchanged.
 
-## Repository facts
+Fresh results and exact runtime/verifier identities are in
+`docs/evidence/improvement/after/verification-results.json` and
+`docs/evidence/improvement/after/browser-results.json`. The latter reports the
+available Chromium lane separately from unavailable Firefox and WebKit lanes.
+No package, browser or toolchain installation occurred. The existing Python 3.12
+interpreter and already-unpacked cached jsonschema 4.26.0 libraries validated
+both frozen documents and revision 5; the initial missing-library and incompatible
+cached binary attempts are retained as diagnostics.
 
-- **Last commit:** `1350104` 2026-09-17 - Initial commit
-- **History:** 1 commit, 1 tracked file
-- **Hosted CI:** none
-- **Automated checks invoked by CI:** none - this repository has no hosted workflow
-- **Completion contract:** No `DONE.md`: completion is undefined. `portfolio-metadata.json` should record `needs_definition` until a contract exists.
+Original evidence remains historical. Fresh before/after captures show the start,
+a coherent wrong-entrance message and completion at 1280×900 and 390×844. Browser
+reflow checks also cover 320 CSS pixels and 200% root-font enlargement.
 
-## Next step
-
-Decide whether the game is started or its registry row is recorded as not started. A status document is the only sensible artifact until there is work to report.
-
-## Boundary
-
-This file reports repository state, not product quality. A green build is not stability evidence, and nothing here asserts that a hosted surface was checked from outside.
+Human intended-age playtesting, educator review, independent accessibility review,
+disabled-player feedback, actual assistive technology/device/zoom checks and owner
+acceptance remain pending. Automated axe has an incomplete color-contrast check;
+representative computed-color measurements supplement it without establishing
+conformance. No learning-effectiveness, human approval, hosted CI, Jenkins,
+release-readiness or deployment claim is made. No commit, push, PR or external
+service write was performed.

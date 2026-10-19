@@ -1,0 +1,27 @@
+{
+  "schema_sha256": "2ef17a852c7d14e1c97023553fcd9cdbb0a20aa1a9da6d672cda862c137d5102",
+  "scope": "Artifact validity only; no runtime or acceptance claim",
+  "artifacts": [
+    {
+      "file": "game-vision.json",
+      "sha256": "bf25a8f68e17c6f2ed99d0afd78ff9235bd2efb17c07325309e27b26fad5dd5b",
+      "contract": "PASS",
+      "schema": "PASS",
+      "artifact_result_state": "NOT_RUN"
+    },
+    {
+      "file": "vertical-slice-brief.json",
+      "sha256": "649086df0874db63393571313091ab1ad5d14fb06de071105188822c35d99e6d",
+      "contract": "PASS",
+      "schema": "PASS",
+      "artifact_result_state": "NOT_RUN"
+    },
+    {
+      "file": "vertical-slice-brief-r5.json",
+      "sha256": "efb27888920e8ec733585a8409d1622d6382e5bb2b48de759b34db099f7e4842",
+      "contract": "PASS",
+      "schema": "PASS",
+      "artifact_result_state": "NOT_RUN"
+    }
+  ]
+}

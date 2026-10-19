@@ -1,0 +1,1364 @@
+{
+  "brief_sha256": "649086df0874db63393571313091ab1ad5d14fb06de071105188822c35d99e6d",
+  "input": {
+    "field_order": [
+      "path",
+      "gate",
+      "map_evidence",
+      "notice_evidence",
+      "conclusion"
+    ],
+    "domains": {
+      "path": [
+        null,
+        "North",
+        "South"
+      ],
+      "gate": [
+        null,
+        "Willow",
+        "Bell"
+      ],
+      "map_evidence": [
+        null,
+        "M1",
+        "M2"
+      ],
+      "notice_evidence": [
+        null,
+        "N1",
+        "N2"
+      ],
+      "conclusion": [
+        null,
+        "C1",
+        "C2",
+        "C3"
+      ]
+    },
+    "cardinality": "3 * 3 * 3 * 3 * 4 = 324 distinct tuples.",
+    "blank_semantics": "null means unselected. All five keys are present. No empty-string, inferred, default or coerced values. Input outside these domains is an implementation-contract error outside the 324 player states, never a learner answer or a completion.",
+    "display_names": {
+      "North": "North Path",
+      "South": "South Path",
+      "Willow": "Willow Gate",
+      "Bell": "Bell Gate"
+    },
+    "symbols": "P=path; G=gate; M=map_evidence; N=notice_evidence; C=conclusion. != means unequal. AND/OR/NOT use ordinary Boolean logic. Every comparison involving a fact lookup is guarded by a non-null input."
+  },
+  "tables": {
+    "purpose": "Independent finite-table form of the predicates for a later full sweep. These are design rows, not executed results. A row matches only when its listed ordered pair is present; no row contains null.",
+    "rows": [
+      {
+        "issue": "ROUTE_GATE_CONFLICT",
+        "fields": [
+          "path",
+          "gate"
+        ],
+        "pairs": [
+          [
+            "North",
+            "Bell"
+          ],
+          [
+            "South",
+            "Willow"
+          ]
+        ]
+      },
+      {
+        "issue": "CONCLUSION_NOTICE_CONFLICT",
+        "fields": [
+          "conclusion",
+          "notice_evidence"
+        ],
+        "pairs": [
+          [
+            "C1",
+            "N2"
+          ],
+          [
+            "C2",
+            "N1"
+          ]
+        ]
+      },
+      {
+        "issue": "CONCLUSION_ADMISSION_CONFLICT",
+        "fields": [
+          "conclusion",
+          "path"
+        ],
+        "pairs": [
+          [
+            "C1",
+            "North"
+          ],
+          [
+            "C2",
+            "South"
+          ]
+        ]
+      },
+      {
+        "issue": "CONCLUSION_ADMISSION_CONFLICT",
+        "fields": [
+          "conclusion",
+          "gate"
+        ],
+        "pairs": [
+          [
+            "C1",
+            "Willow"
+          ],
+          [
+            "C2",
+            "Bell"
+          ]
+        ]
+      },
+      {
+        "issue": "MAP_EVIDENCE_IRRELEVANT",
+        "fields": [
+          "map_evidence",
+          "path"
+        ],
+        "pairs": [
+          [
+            "M1",
+            "South"
+          ],
+          [
+            "M2",
+            "North"
+          ]
+        ]
+      },
+      {
+        "issue": "MAP_EVIDENCE_IRRELEVANT",
+        "fields": [
+          "map_evidence",
+          "gate"
+        ],
+        "pairs": [
+          [
+            "M1",
+            "Bell"
+          ],
+          [
+            "M2",
+            "Willow"
+          ]
+        ]
+      },
+      {
+        "issue": "NOTICE_EVIDENCE_IRRELEVANT",
+        "fields": [
+          "notice_evidence",
+          "path"
+        ],
+        "pairs": [
+          [
+            "N1",
+            "North"
+          ],
+          [
+            "N2",
+            "South"
+          ]
+        ]
+      },
+      {
+        "issue": "NOTICE_EVIDENCE_IRRELEVANT",
+        "fields": [
+          "notice_evidence",
+          "gate"
+        ],
+        "pairs": [
+          [
+            "N1",
+            "Willow"
+          ],
+          [
+            "N2",
+            "Bell"
+          ]
+        ]
+      },
+      {
+        "issue": "EVIDENCE_DISCONNECTED",
+        "fields": [
+          "map_evidence",
+          "notice_evidence"
+        ],
+        "pairs": [
+          [
+            "M1",
+            "N1"
+          ],
+          [
+            "M2",
+            "N2"
+          ]
+        ]
+      }
+    ],
+    "unary_rows": [
+      {
+        "issue": "UNSUPPORTED_QUICKEST",
+        "field": "conclusion",
+        "equals": "C3"
+      },
+      {
+        "issue": "MISSING_PATH",
+        "field": "path",
+        "equals": null
+      },
+      {
+        "issue": "MISSING_GATE",
+        "field": "gate",
+        "equals": null
+      },
+      {
+        "issue": "WRONG_ENTRANCE",
+        "field": "path",
+        "equals": "North"
+      },
+      {
+        "issue": "WRONG_ENTRANCE",
+        "field": "gate",
+        "equals": "Willow"
+      },
+      {
+        "issue": "MISSING_MAP_EVIDENCE",
+        "field": "map_evidence",
+        "equals": null
+      },
+      {
+        "issue": "MISSING_NOTICE_EVIDENCE",
+        "field": "notice_evidence",
+        "equals": null
+      },
+      {
+        "issue": "MISSING_CONCLUSION",
+        "field": "conclusion",
+        "equals": null
+      }
+    ],
+    "reduction": "Union the codes from every matching pair/unary row, deduplicate, then sort by issue_order. This union is the complete expected issue set. Derive primary, secondary, class, actionable and complete exactly as specified above; render only the authored rules below.",
+    "totality_argument": "All finite inputs have a unique Boolean membership result for every row and a unique position in the total code order. If no unary row matches, every field is selected, C!=C3, P=South and G=Bell. The pair rows then force M=M2, N=N1 and C=C1. Therefore exactly the supported tuple has no issues; every other tuple has one uniquely ordered nonempty issue list.",
+    "future_sweep": "Enumerate the Cartesian product in input.field_order and the listed domain order, with conclusion varying fastest. Require 324 distinct tuples, compare the implementation's entire ordered result to this table oracle, and compare golden_results independently. Do not call the implementation evaluator to generate its own expected results. Compare rendered text, links and revision focus as well as classification. This session does not execute that sweep."
+  },
+  "priority": [
+    "ROUTE_GATE_CONFLICT",
+    "CONCLUSION_NOTICE_CONFLICT",
+    "CONCLUSION_ADMISSION_CONFLICT",
+    "UNSUPPORTED_QUICKEST",
+    "MAP_EVIDENCE_IRRELEVANT",
+    "NOTICE_EVIDENCE_IRRELEVANT",
+    "EVIDENCE_DISCONNECTED",
+    "MISSING_PATH",
+    "MISSING_GATE",
+    "WRONG_ENTRANCE",
+    "MISSING_MAP_EVIDENCE",
+    "MISSING_NOTICE_EVIDENCE",
+    "MISSING_CONCLUSION"
+  ],
+  "rules": [
+    {
+      "code": "ROUTE_GATE_CONFLICT",
+      "feedback_class": "contradictory_route_gate",
+      "focus_field": "path",
+      "source_text": "The selected path and gate do not match the route guide. Compare the connections and the rule about changing paths.",
+      "links": [
+        "M1",
+        "M2",
+        "M3"
+      ]
+    },
+    {
+      "code": "CONCLUSION_NOTICE_CONFLICT",
+      "feedback_class": "contradictory_conclusion",
+      "focus_field": "conclusion",
+      "source_text": "The selected notice detail and conclusion give opposite answers about visitor entry. They do not form a supported explanation. Compare the notice detail with the conclusion.",
+      "links": [
+        "selected_notice",
+        "conclusion"
+      ]
+    },
+    {
+      "code": "CONCLUSION_ADMISSION_CONFLICT",
+      "feedback_class": "contradictory_conclusion",
+      "focus_field": "conclusion",
+      "source_text": "The conclusion does not match the admission rule for at least one selected part of the plan. Compare the selected path's destination and any selected gate with tonight's notice.",
+      "links": [
+        "M1",
+        "M2",
+        "N1",
+        "N2",
+        "conclusion"
+      ]
+    },
+    {
+      "code": "UNSUPPORTED_QUICKEST",
+      "feedback_class": "unsupported_rationale",
+      "focus_field": "conclusion",
+      "source_text": "Neither source compares travel times, so the quickest-path claim is unsupported. What do the guide and notice show about entering tonight?",
+      "links": [
+        "route_guide",
+        "festival_notice"
+      ]
+    },
+    {
+      "code": "MAP_EVIDENCE_IRRELEVANT",
+      "feedback_class": "irrelevant_evidence",
+      "focus_field": "map_evidence",
+      "source_text": "The selected route-guide detail does not match every selected part of the plan. Which guide detail supports the path and gate you mean?",
+      "links": [
+        "M1",
+        "M2"
+      ]
+    },
+    {
+      "code": "NOTICE_EVIDENCE_IRRELEVANT",
+      "feedback_class": "irrelevant_evidence",
+      "focus_field": "notice_evidence",
+      "source_text": "The selected notice detail concerns a different gate from at least one selected part of the plan. Match the path's destination and gate with a notice detail.",
+      "links": [
+        "M1",
+        "M2",
+        "N1",
+        "N2"
+      ]
+    },
+    {
+      "code": "EVIDENCE_DISCONNECTED",
+      "feedback_class": "irrelevant_evidence",
+      "focus_field": "map_evidence",
+      "source_text": "The selected guide detail and notice detail describe different gates. They do not connect a path to that gate's admission rule. Find details that connect.",
+      "links": [
+        "M1",
+        "M2",
+        "N1",
+        "N2"
+      ]
+    },
+    {
+      "code": "MISSING_PATH",
+      "feedback_class": "missing_plan",
+      "focus_field": "path",
+      "source_text": "The path is missing. Use the route guide to choose a path from Festival Plaza.",
+      "links": [
+        "M1",
+        "M2"
+      ]
+    },
+    {
+      "code": "MISSING_GATE",
+      "feedback_class": "missing_plan",
+      "focus_field": "gate",
+      "source_text": "The gate is missing. Use the guide and notice to choose the entrance in your directions.",
+      "links": [
+        "M1",
+        "M2",
+        "N1",
+        "N2"
+      ]
+    },
+    {
+      "code": "WRONG_ENTRANCE",
+      "feedback_class": "coherent_wrong_entrance",
+      "focus_field": "path",
+      "source_text": "At least one selected part of the plan points to Willow Gate, which is exit-only tonight. The visitor asked to go inside. Which map connection reaches a visitor entrance?",
+      "links": [
+        "M1",
+        "M2",
+        "N1",
+        "N2"
+      ]
+    },
+    {
+      "code": "MISSING_MAP_EVIDENCE",
+      "feedback_class": "actionable_but_incomplete",
+      "focus_field": "map_evidence",
+      "source_text": "Which route-guide detail supports your directions? Select a detail for your explanation.",
+      "links": [
+        "M1",
+        "M2"
+      ]
+    },
+    {
+      "code": "MISSING_NOTICE_EVIDENCE",
+      "feedback_class": "actionable_but_incomplete",
+      "focus_field": "notice_evidence",
+      "source_text": "Which notice detail supports entering at your chosen gate tonight? Select a detail for your explanation.",
+      "links": [
+        "N1",
+        "N2"
+      ]
+    },
+    {
+      "code": "MISSING_CONCLUSION",
+      "feedback_class": "actionable_but_incomplete",
+      "focus_field": "conclusion",
+      "source_text": "How do your guide and notice details connect? Select a conclusion for your explanation.",
+      "links": [
+        "M1",
+        "M2",
+        "N1",
+        "N2",
+        "conclusion"
+      ]
+    }
+  ],
+  "headings": {
+    "contradictory_route_gate": "Check the path and gate",
+    "contradictory_conclusion": "Check the conclusion",
+    "unsupported_rationale": "Use a reason the sources support",
+    "irrelevant_evidence": "Connect the details to your plan",
+    "missing_plan": "Finish the directions",
+    "coherent_wrong_entrance": "Check where visitors can enter",
+    "actionable_but_incomplete": "Finish the explanation",
+    "complete_supported": "Message complete"
+  },
+  "rendering": {
+    "panel_boundary": "Recipient interpretation displays submitted claims only. Check against the sources displays status and all issue rows using full source knowledge. No animation, travel event, invented consequence, selected-answer correction or new factual claim.",
+    "recipient_order": "For one of the eight exact tuples in recipient_response_cases, use that case's recipient_interpretation verbatim. These exact-match overrides do not change evaluation or source rows. For all other tuples join the five fragments below, in field_order, with one space. Match the entire tuple, never just the feedback class.",
+    "recipient_fragments": {
+      "path": {
+        "null": "You have not named a path.",
+        "selected": "You named {path_display}."
+      },
+      "gate": {
+        "null": "You have not named a gate.",
+        "selected": "You named {gate_display}."
+      },
+      "map_evidence": {
+        "null": "You have not included a route-guide detail.",
+        "selected": "Your route-guide detail is: {map_text}"
+      },
+      "notice_evidence": {
+        "null": "You have not included a notice detail.",
+        "selected": "Your notice detail is: {notice_text}"
+      },
+      "conclusion": {
+        "null": "You have not included a conclusion.",
+        "selected": "Your conclusion is: {conclusion_text}"
+      }
+    },
+    "substitution": "Use only input.display_names and the exact existing scenario_content facts and message_contract.conclusion_choices text for selected values. The literal null fragment is used for null. No paraphrase, deduction or model generation. Each selected source sentence already has its terminal punctuation; add none.",
+    "source_status_rules": [
+      {
+        "when": "complete=true",
+        "text": "M2 and N1 support the combined explanation.",
+        "links": [
+          "M2",
+          "N1"
+        ],
+        "actions": [
+          "Inspect sources",
+          "Revise",
+          "Replay"
+        ]
+      },
+      {
+        "when": "complete=false AND actionable_plan=true",
+        "text": "The directions are usable; the explanation is not yet complete and supported.",
+        "links": [],
+        "actions": [
+          "Revise",
+          "Show explanation",
+          "Replay"
+        ]
+      },
+      {
+        "when": "complete=false AND actionable_plan=false",
+        "text": "The message is not complete. Check the issues below.",
+        "links": [],
+        "actions": [
+          "Revise",
+          "Show explanation",
+          "Replay"
+        ]
+      }
+    ],
+    "source_rows": "After the source status, render one row per issue in sorted order: primary first, then every secondary. Each row uses exactly issue_rules.source_text and links; the primary heading is feedback_headings[feedback_class]. Source rows are not copied into the recipient panel.",
+    "link_resolution": "M1-M3 and N1-N2 focus their named source sentence. route_guide/festival_notice focus the respective source heading. conclusion focuses the conclusion control group. selected_notice resolves to the submitted N1 or N2 (guarded by its issue predicate). Preserve the listed order within each row; do not merge or drop secondary rows. Return to message restores the invoking control.",
+    "source_status_note": "The status text is a task/source-check judgment, never evidence of learning. A correct route with weak evidence can remain usable even while explanation issues are shown.",
+    "case_source_check_note": "Existing recipient_response_cases.source_check strings are retained as scenario expectations and source-navigation requirements, not literal UI text; the status and issue rows here provide the complete authored display text for those cases too.",
+    "reveal": {
+      "text": "South Path reaches Bell Gate (M2), and Bell Gate is open for visitors to enter tonight (N1). C1 connects those details. Together they support South Path and Bell Gate.",
+      "links": [
+        "M2",
+        "N1",
+        "conclusion"
+      ],
+      "behavior": "Only show on explicit Show explanation activation. Do not edit any field. Mark the next submission assisted; retain that help history for later submissions in the same attempt sequence. Replay starts a new draft but remains identifiable as replay. No persistent learner data."
+    },
+    "revision": "Preserve the exact tuple, source access and feedback until player action. Revise uses evaluation.revision_focus. Replay alone explicitly clears all five fields, focuses the request, and starts a replay context. No score for attempts or time."
+  },
+  "sources": {
+    "visitor_request": "I am at Festival Plaza. I want to go inside the Last Lantern Post tonight. I need a step-free path. Please tell me which path and entrance to use, and explain how the guide and notice support your plan.",
+    "route_guide": {
+      "title": "Routes from Festival Plaza",
+      "intro": "Both marked paths start at Festival Plaza and are step-free. Each path ends at one gate of the Last Lantern Post.",
+      "facts": [
+        {
+          "id": "M1",
+          "text": "North Path leads from Festival Plaza to Willow Gate."
+        },
+        {
+          "id": "M2",
+          "text": "South Path leads from Festival Plaza to Bell Gate."
+        },
+        {
+          "id": "M3",
+          "text": "There is no connecting path between the gates. To change paths, return to Festival Plaza."
+        }
+      ],
+      "map_requirement": "Show the same two named connections and shared start, with no extra traversable lines. Include the full written guide as equivalent text. Do not mark a correct route or include admission rules here."
+    },
+    "festival_notice": {
+      "title": "Entering the Last Lantern Post tonight",
+      "facts": [
+        {
+          "id": "N1",
+          "text": "Bell Gate is open for visitors to enter tonight."
+        },
+        {
+          "id": "N2",
+          "text": "Willow Gate is exit-only tonight. Visitors cannot enter there."
+        }
+      ],
+      "boundary": "Do not name paths in the notice. Explain exit-only directly: leaving is allowed but entry is not."
+    },
+    "fairness": "Both paths satisfy the step-free need. The distinction is admission, fully disclosed in the notice. No hidden opening window, queue, distance, shortcut or assumed mobility speed changes the answer.",
+    "source_necessity": "The guide alone gives routes but not admission; the notice alone gives admission but not which path reaches that gate. A justified South Path/Bell Gate choice needs M2 and N1. Exchanging only the notice's admission assignments would make North/Willow appropriate; exchanging only the map's destinations would change the appropriate path. These are design reasoning checks, not extra playable scenarios or executed tests."
+  },
+  "conclusions": [
+    {
+      "id": "C1",
+      "text": "These details show that my path reaches the gate where visitors can enter tonight."
+    },
+    {
+      "id": "C2",
+      "text": "These details show that my path reaches a gate where visitors cannot enter tonight."
+    },
+    {
+      "id": "C3",
+      "text": "I chose this path because it is the quickest."
+    }
+  ],
+  "overrides": [
+    {
+      "tuple": [
+        "South",
+        "Bell",
+        "M2",
+        "N1",
+        "C1"
+      ],
+      "text": "I understand: take South Path to Bell Gate. Your reason connects the path to a gate that admits visitors tonight."
+    },
+    {
+      "tuple": [
+        "South",
+        "Bell",
+        "M2",
+        null,
+        "C1"
+      ],
+      "text": "I understand the path and gate. Which notice detail supports entering there tonight?"
+    },
+    {
+      "tuple": [
+        null,
+        "Bell",
+        null,
+        "N1",
+        null
+      ],
+      "text": "You named Bell Gate. Which path should I take from Festival Plaza?"
+    },
+    {
+      "tuple": [
+        "North",
+        "Willow",
+        "M1",
+        "N2",
+        "C2"
+      ],
+      "text": "I understand that your plan reaches Willow Gate and your explanation says I cannot enter there. I asked to go inside tonight."
+    },
+    {
+      "tuple": [
+        "South",
+        "Willow",
+        "M2",
+        "N2",
+        "C2"
+      ],
+      "text": "Your directions name South Path and Willow Gate, but your guide detail connects South Path to Bell Gate. Which plan do you mean?"
+    },
+    {
+      "tuple": [
+        "North",
+        "Willow",
+        "M1",
+        "N2",
+        "C1"
+      ],
+      "text": "Your conclusion says visitors can enter, but your notice detail says they cannot enter at Willow Gate tonight."
+    },
+    {
+      "tuple": [
+        "South",
+        "Bell",
+        "M2",
+        "N1",
+        "C3"
+      ],
+      "text": "I understand the path and gate, and that you call this the quickest path."
+    },
+    {
+      "tuple": [
+        "South",
+        "Bell",
+        "M1",
+        "N2",
+        null
+      ],
+      "text": "Your plan names Bell Gate, but your selected details describe North Path and Willow Gate. Which details support your plan?"
+    }
+  ],
+  "goldens": [
+    {
+      "id": "complete_supported",
+      "input": [
+        "South",
+        "Bell",
+        "M2",
+        "N1",
+        "C1"
+      ],
+      "expected": {
+        "issues": [],
+        "primary_issue": null,
+        "secondary_issues": [],
+        "feedback_class": "complete_supported",
+        "actionable_plan": true,
+        "complete": true
+      },
+      "recipient_text_rule": "Exact authored recipient_response_cases[case=complete_supported].recipient_interpretation",
+      "source_text_rule": "Exact source_status rule followed by all ordered issue_rules rows and links.",
+      "status": "Authored expected result, not executed test evidence."
+    },
+    {
+      "id": "actionable_but_incomplete",
+      "input": [
+        "South",
+        "Bell",
+        "M2",
+        null,
+        "C1"
+      ],
+      "expected": {
+        "issues": [
+          "MISSING_NOTICE_EVIDENCE"
+        ],
+        "primary_issue": "MISSING_NOTICE_EVIDENCE",
+        "secondary_issues": [],
+        "feedback_class": "actionable_but_incomplete",
+        "actionable_plan": true,
+        "complete": false
+      },
+      "recipient_text_rule": "Exact authored recipient_response_cases[case=actionable_but_incomplete].recipient_interpretation",
+      "source_text_rule": "Exact source_status rule followed by all ordered issue_rules rows and links.",
+      "status": "Authored expected result, not executed test evidence."
+    },
+    {
+      "id": "missing_plan",
+      "input": [
+        null,
+        "Bell",
+        null,
+        "N1",
+        null
+      ],
+      "expected": {
+        "issues": [
+          "MISSING_PATH",
+          "MISSING_MAP_EVIDENCE",
+          "MISSING_CONCLUSION"
+        ],
+        "primary_issue": "MISSING_PATH",
+        "secondary_issues": [
+          "MISSING_MAP_EVIDENCE",
+          "MISSING_CONCLUSION"
+        ],
+        "feedback_class": "missing_plan",
+        "actionable_plan": false,
+        "complete": false
+      },
+      "recipient_text_rule": "Exact authored recipient_response_cases[case=missing_plan].recipient_interpretation",
+      "source_text_rule": "Exact source_status rule followed by all ordered issue_rules rows and links.",
+      "status": "Authored expected result, not executed test evidence."
+    },
+    {
+      "id": "coherent_wrong_entrance",
+      "input": [
+        "North",
+        "Willow",
+        "M1",
+        "N2",
+        "C2"
+      ],
+      "expected": {
+        "issues": [
+          "WRONG_ENTRANCE"
+        ],
+        "primary_issue": "WRONG_ENTRANCE",
+        "secondary_issues": [],
+        "feedback_class": "coherent_wrong_entrance",
+        "actionable_plan": false,
+        "complete": false
+      },
+      "recipient_text_rule": "Exact authored recipient_response_cases[case=coherent_wrong_entrance].recipient_interpretation",
+      "source_text_rule": "Exact source_status rule followed by all ordered issue_rules rows and links.",
+      "status": "Authored expected result, not executed test evidence."
+    },
+    {
+      "id": "contradictory_route_gate",
+      "input": [
+        "South",
+        "Willow",
+        "M2",
+        "N2",
+        "C2"
+      ],
+      "expected": {
+        "issues": [
+          "ROUTE_GATE_CONFLICT",
+          "CONCLUSION_ADMISSION_CONFLICT",
+          "MAP_EVIDENCE_IRRELEVANT",
+          "NOTICE_EVIDENCE_IRRELEVANT",
+          "EVIDENCE_DISCONNECTED",
+          "WRONG_ENTRANCE"
+        ],
+        "primary_issue": "ROUTE_GATE_CONFLICT",
+        "secondary_issues": [
+          "CONCLUSION_ADMISSION_CONFLICT",
+          "MAP_EVIDENCE_IRRELEVANT",
+          "NOTICE_EVIDENCE_IRRELEVANT",
+          "EVIDENCE_DISCONNECTED",
+          "WRONG_ENTRANCE"
+        ],
+        "feedback_class": "contradictory_route_gate",
+        "actionable_plan": false,
+        "complete": false
+      },
+      "recipient_text_rule": "Exact authored recipient_response_cases[case=contradictory_route_gate].recipient_interpretation",
+      "source_text_rule": "Exact source_status rule followed by all ordered issue_rules rows and links.",
+      "status": "Authored expected result, not executed test evidence."
+    },
+    {
+      "id": "contradictory_conclusion",
+      "input": [
+        "North",
+        "Willow",
+        "M1",
+        "N2",
+        "C1"
+      ],
+      "expected": {
+        "issues": [
+          "CONCLUSION_NOTICE_CONFLICT",
+          "CONCLUSION_ADMISSION_CONFLICT",
+          "WRONG_ENTRANCE"
+        ],
+        "primary_issue": "CONCLUSION_NOTICE_CONFLICT",
+        "secondary_issues": [
+          "CONCLUSION_ADMISSION_CONFLICT",
+          "WRONG_ENTRANCE"
+        ],
+        "feedback_class": "contradictory_conclusion",
+        "actionable_plan": false,
+        "complete": false
+      },
+      "recipient_text_rule": "Exact authored recipient_response_cases[case=contradictory_conclusion].recipient_interpretation",
+      "source_text_rule": "Exact source_status rule followed by all ordered issue_rules rows and links.",
+      "status": "Authored expected result, not executed test evidence."
+    },
+    {
+      "id": "unsupported_rationale",
+      "input": [
+        "South",
+        "Bell",
+        "M2",
+        "N1",
+        "C3"
+      ],
+      "expected": {
+        "issues": [
+          "UNSUPPORTED_QUICKEST"
+        ],
+        "primary_issue": "UNSUPPORTED_QUICKEST",
+        "secondary_issues": [],
+        "feedback_class": "unsupported_rationale",
+        "actionable_plan": true,
+        "complete": false
+      },
+      "recipient_text_rule": "Exact authored recipient_response_cases[case=unsupported_rationale].recipient_interpretation",
+      "source_text_rule": "Exact source_status rule followed by all ordered issue_rules rows and links.",
+      "status": "Authored expected result, not executed test evidence."
+    },
+    {
+      "id": "irrelevant_evidence",
+      "input": [
+        "South",
+        "Bell",
+        "M1",
+        "N2",
+        null
+      ],
+      "expected": {
+        "issues": [
+          "MAP_EVIDENCE_IRRELEVANT",
+          "NOTICE_EVIDENCE_IRRELEVANT",
+          "MISSING_CONCLUSION"
+        ],
+        "primary_issue": "MAP_EVIDENCE_IRRELEVANT",
+        "secondary_issues": [
+          "NOTICE_EVIDENCE_IRRELEVANT",
+          "MISSING_CONCLUSION"
+        ],
+        "feedback_class": "irrelevant_evidence",
+        "actionable_plan": true,
+        "complete": false
+      },
+      "recipient_text_rule": "Exact authored recipient_response_cases[case=irrelevant_evidence].recipient_interpretation",
+      "source_text_rule": "Exact source_status rule followed by all ordered issue_rules rows and links.",
+      "status": "Authored expected result, not executed test evidence."
+    },
+    {
+      "id": "all_blank",
+      "input": [
+        null,
+        null,
+        null,
+        null,
+        null
+      ],
+      "expected": {
+        "issues": [
+          "MISSING_PATH",
+          "MISSING_GATE",
+          "MISSING_MAP_EVIDENCE",
+          "MISSING_NOTICE_EVIDENCE",
+          "MISSING_CONCLUSION"
+        ],
+        "primary_issue": "MISSING_PATH",
+        "secondary_issues": [
+          "MISSING_GATE",
+          "MISSING_MAP_EVIDENCE",
+          "MISSING_NOTICE_EVIDENCE",
+          "MISSING_CONCLUSION"
+        ],
+        "feedback_class": "missing_plan",
+        "actionable_plan": false,
+        "complete": false
+      },
+      "recipient_text_rule": "Five exact recipient_fragments in field_order; no authored-case override.",
+      "source_text_rule": "Exact source_status rule followed by all ordered issue_rules rows and links.",
+      "status": "Authored expected result, not executed test evidence."
+    },
+    {
+      "id": "quickest_with_blank_plan",
+      "input": [
+        null,
+        null,
+        null,
+        null,
+        "C3"
+      ],
+      "expected": {
+        "issues": [
+          "UNSUPPORTED_QUICKEST",
+          "MISSING_PATH",
+          "MISSING_GATE",
+          "MISSING_MAP_EVIDENCE",
+          "MISSING_NOTICE_EVIDENCE"
+        ],
+        "primary_issue": "UNSUPPORTED_QUICKEST",
+        "secondary_issues": [
+          "MISSING_PATH",
+          "MISSING_GATE",
+          "MISSING_MAP_EVIDENCE",
+          "MISSING_NOTICE_EVIDENCE"
+        ],
+        "feedback_class": "unsupported_rationale",
+        "actionable_plan": false,
+        "complete": false
+      },
+      "recipient_text_rule": "Five exact recipient_fragments in field_order; no authored-case override.",
+      "source_text_rule": "Exact source_status rule followed by all ordered issue_rules rows and links.",
+      "status": "Authored expected result, not executed test evidence."
+    },
+    {
+      "id": "route_conflict_and_quickest",
+      "input": [
+        "South",
+        "Willow",
+        null,
+        null,
+        "C3"
+      ],
+      "expected": {
+        "issues": [
+          "ROUTE_GATE_CONFLICT",
+          "UNSUPPORTED_QUICKEST",
+          "WRONG_ENTRANCE",
+          "MISSING_MAP_EVIDENCE",
+          "MISSING_NOTICE_EVIDENCE"
+        ],
+        "primary_issue": "ROUTE_GATE_CONFLICT",
+        "secondary_issues": [
+          "UNSUPPORTED_QUICKEST",
+          "WRONG_ENTRANCE",
+          "MISSING_MAP_EVIDENCE",
+          "MISSING_NOTICE_EVIDENCE"
+        ],
+        "feedback_class": "contradictory_route_gate",
+        "actionable_plan": false,
+        "complete": false
+      },
+      "recipient_text_rule": "Five exact recipient_fragments in field_order; no authored-case override.",
+      "source_text_rule": "Exact source_status rule followed by all ordered issue_rules rows and links.",
+      "status": "Authored expected result, not executed test evidence."
+    },
+    {
+      "id": "opposite_route_conflict",
+      "input": [
+        "North",
+        "Bell",
+        "M1",
+        "N1",
+        "C1"
+      ],
+      "expected": {
+        "issues": [
+          "ROUTE_GATE_CONFLICT",
+          "CONCLUSION_ADMISSION_CONFLICT",
+          "MAP_EVIDENCE_IRRELEVANT",
+          "NOTICE_EVIDENCE_IRRELEVANT",
+          "EVIDENCE_DISCONNECTED",
+          "WRONG_ENTRANCE"
+        ],
+        "primary_issue": "ROUTE_GATE_CONFLICT",
+        "secondary_issues": [
+          "CONCLUSION_ADMISSION_CONFLICT",
+          "MAP_EVIDENCE_IRRELEVANT",
+          "NOTICE_EVIDENCE_IRRELEVANT",
+          "EVIDENCE_DISCONNECTED",
+          "WRONG_ENTRANCE"
+        ],
+        "feedback_class": "contradictory_route_gate",
+        "actionable_plan": false,
+        "complete": false
+      },
+      "recipient_text_rule": "Five exact recipient_fragments in field_order; no authored-case override.",
+      "source_text_rule": "Exact source_status rule followed by all ordered issue_rules rows and links.",
+      "status": "Authored expected result, not executed test evidence."
+    },
+    {
+      "id": "notice_conflict_without_plan",
+      "input": [
+        null,
+        null,
+        null,
+        "N2",
+        "C1"
+      ],
+      "expected": {
+        "issues": [
+          "CONCLUSION_NOTICE_CONFLICT",
+          "MISSING_PATH",
+          "MISSING_GATE",
+          "MISSING_MAP_EVIDENCE"
+        ],
+        "primary_issue": "CONCLUSION_NOTICE_CONFLICT",
+        "secondary_issues": [
+          "MISSING_PATH",
+          "MISSING_GATE",
+          "MISSING_MAP_EVIDENCE"
+        ],
+        "feedback_class": "contradictory_conclusion",
+        "actionable_plan": false,
+        "complete": false
+      },
+      "recipient_text_rule": "Five exact recipient_fragments in field_order; no authored-case override.",
+      "source_text_rule": "Exact source_status rule followed by all ordered issue_rules rows and links.",
+      "status": "Authored expected result, not executed test evidence."
+    },
+    {
+      "id": "path_admission_conflict_without_gate",
+      "input": [
+        "South",
+        null,
+        null,
+        null,
+        "C2"
+      ],
+      "expected": {
+        "issues": [
+          "CONCLUSION_ADMISSION_CONFLICT",
+          "MISSING_GATE",
+          "MISSING_MAP_EVIDENCE",
+          "MISSING_NOTICE_EVIDENCE"
+        ],
+        "primary_issue": "CONCLUSION_ADMISSION_CONFLICT",
+        "secondary_issues": [
+          "MISSING_GATE",
+          "MISSING_MAP_EVIDENCE",
+          "MISSING_NOTICE_EVIDENCE"
+        ],
+        "feedback_class": "contradictory_conclusion",
+        "actionable_plan": false,
+        "complete": false
+      },
+      "recipient_text_rule": "Five exact recipient_fragments in field_order; no authored-case override.",
+      "source_text_rule": "Exact source_status rule followed by all ordered issue_rules rows and links.",
+      "status": "Authored expected result, not executed test evidence."
+    },
+    {
+      "id": "irrelevant_map_without_path",
+      "input": [
+        null,
+        "Bell",
+        "M1",
+        null,
+        null
+      ],
+      "expected": {
+        "issues": [
+          "MAP_EVIDENCE_IRRELEVANT",
+          "MISSING_PATH",
+          "MISSING_NOTICE_EVIDENCE",
+          "MISSING_CONCLUSION"
+        ],
+        "primary_issue": "MAP_EVIDENCE_IRRELEVANT",
+        "secondary_issues": [
+          "MISSING_PATH",
+          "MISSING_NOTICE_EVIDENCE",
+          "MISSING_CONCLUSION"
+        ],
+        "feedback_class": "irrelevant_evidence",
+        "actionable_plan": false,
+        "complete": false
+      },
+      "recipient_text_rule": "Five exact recipient_fragments in field_order; no authored-case override.",
+      "source_text_rule": "Exact source_status rule followed by all ordered issue_rules rows and links.",
+      "status": "Authored expected result, not executed test evidence."
+    },
+    {
+      "id": "disconnected_evidence_without_plan",
+      "input": [
+        null,
+        null,
+        "M1",
+        "N1",
+        null
+      ],
+      "expected": {
+        "issues": [
+          "EVIDENCE_DISCONNECTED",
+          "MISSING_PATH",
+          "MISSING_GATE",
+          "MISSING_CONCLUSION"
+        ],
+        "primary_issue": "EVIDENCE_DISCONNECTED",
+        "secondary_issues": [
+          "MISSING_PATH",
+          "MISSING_GATE",
+          "MISSING_CONCLUSION"
+        ],
+        "feedback_class": "irrelevant_evidence",
+        "actionable_plan": false,
+        "complete": false
+      },
+      "recipient_text_rule": "Five exact recipient_fragments in field_order; no authored-case override.",
+      "source_text_rule": "Exact source_status rule followed by all ordered issue_rules rows and links.",
+      "status": "Authored expected result, not executed test evidence."
+    },
+    {
+      "id": "wrong_entrance_missing_explanation",
+      "input": [
+        "North",
+        "Willow",
+        null,
+        null,
+        null
+      ],
+      "expected": {
+        "issues": [
+          "WRONG_ENTRANCE",
+          "MISSING_MAP_EVIDENCE",
+          "MISSING_NOTICE_EVIDENCE",
+          "MISSING_CONCLUSION"
+        ],
+        "primary_issue": "WRONG_ENTRANCE",
+        "secondary_issues": [
+          "MISSING_MAP_EVIDENCE",
+          "MISSING_NOTICE_EVIDENCE",
+          "MISSING_CONCLUSION"
+        ],
+        "feedback_class": "coherent_wrong_entrance",
+        "actionable_plan": false,
+        "complete": false
+      },
+      "recipient_text_rule": "Five exact recipient_fragments in field_order; no authored-case override.",
+      "source_text_rule": "Exact source_status rule followed by all ordered issue_rules rows and links.",
+      "status": "Authored expected result, not executed test evidence."
+    },
+    {
+      "id": "contradiction_and_irrelevant_notice_with_blank_map",
+      "input": [
+        "South",
+        "Bell",
+        null,
+        "N2",
+        "C1"
+      ],
+      "expected": {
+        "issues": [
+          "CONCLUSION_NOTICE_CONFLICT",
+          "NOTICE_EVIDENCE_IRRELEVANT",
+          "MISSING_MAP_EVIDENCE"
+        ],
+        "primary_issue": "CONCLUSION_NOTICE_CONFLICT",
+        "secondary_issues": [
+          "NOTICE_EVIDENCE_IRRELEVANT",
+          "MISSING_MAP_EVIDENCE"
+        ],
+        "feedback_class": "contradictory_conclusion",
+        "actionable_plan": false,
+        "complete": false
+      },
+      "recipient_text_rule": "Five exact recipient_fragments in field_order; no authored-case override.",
+      "source_text_rule": "Exact source_status rule followed by all ordered issue_rules rows and links.",
+      "status": "Authored expected result, not executed test evidence."
+    },
+    {
+      "id": "irrelevant_map_and_disconnected_evidence",
+      "input": [
+        "South",
+        "Bell",
+        "M1",
+        "N1",
+        "C1"
+      ],
+      "expected": {
+        "issues": [
+          "MAP_EVIDENCE_IRRELEVANT",
+          "EVIDENCE_DISCONNECTED"
+        ],
+        "primary_issue": "MAP_EVIDENCE_IRRELEVANT",
+        "secondary_issues": [
+          "EVIDENCE_DISCONNECTED"
+        ],
+        "feedback_class": "irrelevant_evidence",
+        "actionable_plan": true,
+        "complete": false
+      },
+      "recipient_text_rule": "Five exact recipient_fragments in field_order; no authored-case override.",
+      "source_text_rule": "Exact source_status rule followed by all ordered issue_rules rows and links.",
+      "status": "Authored expected result, not executed test evidence."
+    },
+    {
+      "id": "gate_admission_conflict_without_path",
+      "input": [
+        null,
+        "Willow",
+        null,
+        null,
+        "C1"
+      ],
+      "expected": {
+        "issues": [
+          "CONCLUSION_ADMISSION_CONFLICT",
+          "MISSING_PATH",
+          "WRONG_ENTRANCE",
+          "MISSING_MAP_EVIDENCE",
+          "MISSING_NOTICE_EVIDENCE"
+        ],
+        "primary_issue": "CONCLUSION_ADMISSION_CONFLICT",
+        "secondary_issues": [
+          "MISSING_PATH",
+          "WRONG_ENTRANCE",
+          "MISSING_MAP_EVIDENCE",
+          "MISSING_NOTICE_EVIDENCE"
+        ],
+        "feedback_class": "contradictory_conclusion",
+        "actionable_plan": false,
+        "complete": false
+      },
+      "recipient_text_rule": "Five exact recipient_fragments in field_order; no authored-case override.",
+      "source_text_rule": "Exact source_status rule followed by all ordered issue_rules rows and links.",
+      "status": "Authored expected result, not executed test evidence."
+    },
+    {
+      "id": "missing_conclusion_only",
+      "input": [
+        "South",
+        "Bell",
+        "M2",
+        "N1",
+        null
+      ],
+      "expected": {
+        "issues": [
+          "MISSING_CONCLUSION"
+        ],
+        "primary_issue": "MISSING_CONCLUSION",
+        "secondary_issues": [],
+        "feedback_class": "actionable_but_incomplete",
+        "actionable_plan": true,
+        "complete": false
+      },
+      "recipient_text_rule": "Five exact recipient_fragments in field_order; no authored-case override.",
+      "source_text_rule": "Exact source_status rule followed by all ordered issue_rules rows and links.",
+      "status": "Authored expected result, not executed test evidence."
+    },
+    {
+      "id": "do_not_fill_gate",
+      "input": [
+        "South",
+        null,
+        "M2",
+        "N1",
+        "C1"
+      ],
+      "expected": {
+        "issues": [
+          "MISSING_GATE"
+        ],
+        "primary_issue": "MISSING_GATE",
+        "secondary_issues": [],
+        "feedback_class": "missing_plan",
+        "actionable_plan": false,
+        "complete": false
+      },
+      "recipient_text_rule": "Five exact recipient_fragments in field_order; no authored-case override.",
+      "source_text_rule": "Exact source_status rule followed by all ordered issue_rules rows and links.",
+      "status": "Authored expected result, not executed test evidence."
+    },
+    {
+      "id": "do_not_infer_plan_from_evidence",
+      "input": [
+        null,
+        null,
+        "M2",
+        "N1",
+        "C1"
+      ],
+      "expected": {
+        "issues": [
+          "MISSING_PATH",
+          "MISSING_GATE"
+        ],
+        "primary_issue": "MISSING_PATH",
+        "secondary_issues": [
+          "MISSING_GATE"
+        ],
+        "feedback_class": "missing_plan",
+        "actionable_plan": false,
+        "complete": false
+      },
+      "recipient_text_rule": "Five exact recipient_fragments in field_order; no authored-case override.",
+      "source_text_rule": "Exact source_status rule followed by all ordered issue_rules rows and links.",
+      "status": "Authored expected result, not executed test evidence."
+    },
+    {
+      "id": "missing_gate_precedes_known_wrong_entrance",
+      "input": [
+        "North",
+        null,
+        "M1",
+        "N2",
+        "C2"
+      ],
+      "expected": {
+        "issues": [
+          "MISSING_GATE",
+          "WRONG_ENTRANCE"
+        ],
+        "primary_issue": "MISSING_GATE",
+        "secondary_issues": [
+          "WRONG_ENTRANCE"
+        ],
+        "feedback_class": "missing_plan",
+        "actionable_plan": false,
+        "complete": false
+      },
+      "recipient_text_rule": "Five exact recipient_fragments in field_order; no authored-case override.",
+      "source_text_rule": "Exact source_status rule followed by all ordered issue_rules rows and links.",
+      "status": "Authored expected result, not executed test evidence."
+    },
+    {
+      "id": "unanchored_conclusion_is_not_false",
+      "input": [
+        null,
+        null,
+        null,
+        null,
+        "C1"
+      ],
+      "expected": {
+        "issues": [
+          "MISSING_PATH",
+          "MISSING_GATE",
+          "MISSING_MAP_EVIDENCE",
+          "MISSING_NOTICE_EVIDENCE"
+        ],
+        "primary_issue": "MISSING_PATH",
+        "secondary_issues": [
+          "MISSING_GATE",
+          "MISSING_MAP_EVIDENCE",
+          "MISSING_NOTICE_EVIDENCE"
+        ],
+        "feedback_class": "missing_plan",
+        "actionable_plan": false,
+        "complete": false
+      },
+      "recipient_text_rule": "Five exact recipient_fragments in field_order; no authored-case override.",
+      "source_text_rule": "Exact source_status rule followed by all ordered issue_rules rows and links.",
+      "status": "Authored expected result, not executed test evidence."
+    },
+    {
+      "id": "both_conclusion_checks_with_correct_directions",
+      "input": [
+        "South",
+        "Bell",
+        "M2",
+        "N1",
+        "C2"
+      ],
+      "expected": {
+        "issues": [
+          "CONCLUSION_NOTICE_CONFLICT",
+          "CONCLUSION_ADMISSION_CONFLICT"
+        ],
+        "primary_issue": "CONCLUSION_NOTICE_CONFLICT",
+        "secondary_issues": [
+          "CONCLUSION_ADMISSION_CONFLICT"
+        ],
+        "feedback_class": "contradictory_conclusion",
+        "actionable_plan": false,
+        "complete": false
+      },
+      "recipient_text_rule": "Five exact recipient_fragments in field_order; no authored-case override.",
+      "source_text_rule": "Exact source_status rule followed by all ordered issue_rules rows and links.",
+      "status": "Authored expected result, not executed test evidence."
+    }
+  ]
+}

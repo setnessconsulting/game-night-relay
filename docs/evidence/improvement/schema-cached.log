@@ -1,0 +1,17 @@
+Traceback (most recent call last):
+  File "<user-profile>\Desktop\AI Projects\02-setnessconsulting\_worktrees\game-night-relay-improved-20261018\scripts\validate-design.py", line 13, in <module>
+    from jsonschema import Draft202012Validator  # noqa: E402
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<user-profile>\AppData\Local\uv\cache\archive-v0\9rMTMXASjft5eDJJ\jsonschema\__init__.py", line 13, in <module>
+    from jsonschema._format import FormatChecker
+  File "<user-profile>\AppData\Local\uv\cache\archive-v0\9rMTMXASjft5eDJJ\jsonschema\_format.py", line 11, in <module>
+    from jsonschema.exceptions import FormatError
+  File "<user-profile>\AppData\Local\uv\cache\archive-v0\9rMTMXASjft5eDJJ\jsonschema\exceptions.py", line 15, in <module>
+    from referencing.exceptions import Unresolvable as _Unresolvable
+  File "<user-profile>\AppData\Local\uv\cache\archive-v0\775u4QUAvJPUWxZg\referencing\__init__.py", line 5, in <module>
+    from referencing._core import Anchor, Registry, Resource, Specification
+  File "<user-profile>\AppData\Local\uv\cache\archive-v0\775u4QUAvJPUWxZg\referencing\_core.py", line 9, in <module>
+    from rpds import HashTrieMap, HashTrieSet, List
+  File "<user-profile>\AppData\Local\uv\cache\archive-v0\_na098CeRgZzozht\rpds\__init__.py", line 1, in <module>
+    from .rpds import *
+ModuleNotFoundError: No module named 'rpds.rpds'
