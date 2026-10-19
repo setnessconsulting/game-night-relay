@@ -1,13 +1,15 @@
 # Status - game-night-relay
 
-**As of:** 2026-10-17. Every field below was read from this repository at that date; no product run, deploy, or test execution was performed to write this entry.
+**As of:** 2026-10-19. Every field below was read from `origin/main` on that date; no product run,
+deploy, or test execution was performed to write this entry.
 
-This repository currently holds a single tracked file, `README.md`. No game, test, build, or contract exists yet.
+This repository holds a placeholder `README.md` and this status document. No game, test, build,
+or contract exists yet.
 
 ## Repository facts
 
-- **Last commit:** `1350104` 2026-09-17 - Initial commit
-- **History:** 1 commit, 1 tracked file
+- **Last commit at read time:** `2c46b0e` 2026-10-17 - docs: add STATUS.md with the repository's measured state
+- **History:** 2 commits, 2 tracked files (this refresh adds one commit on top; it is the only change)
 - **Hosted CI:** none
 - **Automated checks invoked by CI:** none - this repository has no hosted workflow
 - **Completion contract:** No `DONE.md`: completion is undefined. `portfolio-metadata.json` should record `needs_definition` until a contract exists.
