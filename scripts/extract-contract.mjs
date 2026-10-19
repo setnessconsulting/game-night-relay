@@ -1,14 +1,14 @@
 // Copies authored data only. Never generates expected outputs from production code.
 import { readFileSync, writeFileSync, mkdirSync } from 'node:fs';
-import { createHash } from 'node:crypto';
+import { sha256TextLf } from './build-identity.mjs';
 
 export const hashes = {
-  'game-vision.json': 'bf25a8f68e17c6f2ed99d0afd78ff9235bd2efb17c07325309e27b26fad5dd5b',
-  'vertical-slice-brief.json': '649086df0874db63393571313091ab1ad5d14fb06de071105188822c35d99e6d',
+  'game-vision.json': 'e0c232b5b22bcf73af060ee8473a6af0765a03bad7c10c4b2b12398c664be8ad',
+  'vertical-slice-brief.json': 'a2bfe2293fa6e39f3bf5a0e8adcc5a26ecd44ddcb6054ce8328eff66770e7c84',
 };
 for (const [file, hash] of Object.entries(hashes)) {
   const bytes = readFileSync(new URL(`../docs/design/${file}`, import.meta.url));
-  if (createHash('sha256').update(bytes).digest('hex') !== hash) throw Error(`Design drift: ${file}`);
+  if (sha256TextLf(bytes) !== hash) throw Error(`Design drift: ${file}`);
 }
 const brief = JSON.parse(readFileSync(new URL('../docs/design/vertical-slice-brief.json', import.meta.url)));
 const payload = brief.payload;

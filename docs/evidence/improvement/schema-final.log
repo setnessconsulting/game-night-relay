@@ -11,14 +11,14 @@
     },
     {
       "file": "vertical-slice-brief.json",
-      "sha256": "649086df0874db63393571313091ab1ad5d14fb06de071105188822c35d99e6d",
+      "sha256": "6f0264f6d765ddb5dd9dc0c57f6168064a78323824b6cad08c9cd1c3ff3a0e45",
       "contract": "PASS",
       "schema": "PASS",
       "artifact_result_state": "NOT_RUN"
     },
     {
       "file": "vertical-slice-brief-r5.json",
-      "sha256": "efb27888920e8ec733585a8409d1622d6382e5bb2b48de759b34db099f7e4842",
+      "sha256": "3f35747c6db2bf86137bf932392275c69ab9cc6f4c73e289d58fc8f247c27609",
       "contract": "PASS",
       "schema": "PASS",
       "artifact_result_state": "NOT_RUN"

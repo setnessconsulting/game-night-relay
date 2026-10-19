@@ -2,17 +2,17 @@ import assert from 'node:assert/strict';
 import { readFileSync, readdirSync } from 'node:fs';
 import { execFileSync } from 'node:child_process';
 import { fileURLToPath } from 'node:url';
-import { sha256, buildIdentity, verificationIdentity } from './build-identity.mjs';
+import { sha256TextLf, buildIdentity, verificationIdentity } from './build-identity.mjs';
 import { content } from '../src/content.js';
 const root = new URL('../', import.meta.url);
 const hashes = {
-  'game-vision.json':'bf25a8f68e17c6f2ed99d0afd78ff9235bd2efb17c07325309e27b26fad5dd5b',
-  'vertical-slice-brief.json':'649086df0874db63393571313091ab1ad5d14fb06de071105188822c35d99e6d',
-  'vertical-slice-brief-r5.json':'efb27888920e8ec733585a8409d1622d6382e5bb2b48de759b34db099f7e4842',
+  'game-vision.json':'e0c232b5b22bcf73af060ee8473a6af0765a03bad7c10c4b2b12398c664be8ad',
+  'vertical-slice-brief.json':'a2bfe2293fa6e39f3bf5a0e8adcc5a26ecd44ddcb6054ce8328eff66770e7c84',
+  'vertical-slice-brief-r5.json':'2ce2669ed97a54da5a237a58e113f4566dec5e596f338d48128ba63e78401f04',
 };
 for (const [file, hash] of Object.entries(hashes)) {
   const raw = readFileSync(new URL(`docs/design/${file}`, root));
-  assert.equal(sha256(raw), hash, `design drift: ${file}`);
+  assert.equal(sha256TextLf(raw), hash, `design drift: ${file}`);
   assert.equal(JSON.parse(raw).result_state, 'NOT_RUN');
 }
 const payload = JSON.parse(readFileSync(new URL('docs/design/vertical-slice-brief.json', root))).payload;

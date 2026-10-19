@@ -5,7 +5,7 @@
   "profile_version": "1.0",
   "authority_snapshot_ref": {
     "snapshot_id": "design-inputs-game-night-relay-20261018-revision-5",
-    "snapshot_hash": "sha256:28ae3c3e7e8430c2f6ea6f6d6133954e7dec7da9ee8d972f162f3b3e757fcdc5",
+    "snapshot_hash": "sha256:fe78f707d1c82077a4d7dcad7437217cab0758d56e9fcfc2811b4f2c3f8e6884",
     "captured_at": "2026-10-19T03:54:57.711Z"
   },
   "captured_at": "2026-10-19T03:54:57.711Z",
@@ -320,7 +320,7 @@
       "The reported Luna Max determinism finding is addressed in evaluator_contract. Full independent review findings and re-review of this revision remain pending; no independent approval is claimed.",
       "All copy, response cases and accessibility criteria are untested design requirements. No final implementation plan is included."
     ],
-    "design_basis_manifest": "{\"previous_brief_sha256\":\"649086df0874db63393571313091ab1ad5d14fb06de071105188822c35d99e6d\",\"unchanged_evaluator\":\"evaluator_contract, scenario_content, message_contract, recipient_response_cases and oracle fixture are unchanged from revision 4; interaction_contract adds only presentation and navigation behavior.\",\"template\":{\"path\":\"templates/vertical-slice-brief/template-v1.json\",\"sha256\":\"e2299fd03a2f4f2048957efebd74a89f8823f2d71f0d2c160511a39a9c339026\",\"template_version\":\"1.0\"},\"schema\":{\"path\":\"schemas/v1/game-maker-contracts-v1.schema.json\",\"sha256\":\"2ef17a852c7d14e1c97023553fcd9cdbb0a20aa1a9da6d672cda862c137d5102\"},\"source\":\"Current locally inspected project-game-maker files. No remote freshness or owner approval claim.\",\"historical_metadata\":\"Prior review, source observations, unresolved decisions and evaluator-revision notes are inherited historical context. They are not fresh execution evidence.\"}",
+    "design_basis_manifest": "{\"previous_brief_sha256\":\"a2bfe2293fa6e39f3bf5a0e8adcc5a26ecd44ddcb6054ce8328eff66770e7c84\",\"unchanged_evaluator\":\"evaluator_contract, scenario_content, message_contract, recipient_response_cases and oracle fixture are unchanged from revision 4; interaction_contract adds only presentation and navigation behavior.\",\"template\":{\"path\":\"templates/vertical-slice-brief/template-v1.json\",\"sha256\":\"e2299fd03a2f4f2048957efebd74a89f8823f2d71f0d2c160511a39a9c339026\",\"template_version\":\"1.0\"},\"schema\":{\"path\":\"schemas/v1/game-maker-contracts-v1.schema.json\",\"sha256\":\"2ef17a852c7d14e1c97023553fcd9cdbb0a20aa1a9da6d672cda862c137d5102\"},\"source\":\"Current locally inspected project-game-maker files. No remote freshness or owner approval claim.\",\"historical_metadata\":\"Prior review, source observations, unresolved decisions and evaluator-revision notes are inherited historical context. They are not fresh execution evidence.\"}",
     "curriculum_not_claimed": [
       {
         "standard_id": "CCSS.ELA-Literacy.RI.4.3",
@@ -1907,7 +1907,7 @@
       "source_return": "Source links are also available at each decision. Conclusion source links open the reason step before focus. Return restores the invoking control. No answer reveal without explicit Show explanation."
     },
     "revision_5_basis": {
-      "previous_brief_sha256": "649086df0874db63393571313091ab1ad5d14fb06de071105188822c35d99e6d",
+      "previous_brief_sha256": "a2bfe2293fa6e39f3bf5a0e8adcc5a26ecd44ddcb6054ce8328eff66770e7c84",
       "unchanged_evaluator": "evaluator_contract, scenario_content, message_contract, recipient_response_cases and oracle fixture are unchanged from revision 4; interaction_contract adds only presentation and navigation behavior.",
       "template": {
         "path": "templates/vertical-slice-brief/template-v1.json",

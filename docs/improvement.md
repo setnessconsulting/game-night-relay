@@ -35,12 +35,14 @@ or a visitor outcome. The map reflects the chosen path, never its correctness.
 
 ## Contract and implementation
 
-The frozen `game-vision.json` and `vertical-slice-brief.json` retain their exact
-hashes and design-intent NOT_RUN state. `vertical-slice-brief-r5.json` is a new
-traceable revision, using the currently inspected local Game Maker template and
-governing schema. It records the previous brief hash, template/schema hashes and
-an explicit interaction contract. Historical source and review metadata remains
-historical; there is no new owner-approval or remote-freshness claim.
+The frozen `game-vision.json` and `vertical-slice-brief.json` are unchanged and
+retain design-intent NOT_RUN. Their content pins use UTF-8 text with CRLF
+normalized to LF so Git checkout settings do not change the digest. The
+revision-5 brief is a separate traceable revision using the inspected local Game
+Maker template and governing schema. Its previous-brief digest now matches the
+tracked revision-4 artifact; the revision-5 snapshot digest was recomputed from
+that exact manifest. Historical source and review metadata remains historical;
+there is no new owner-approval or remote-freshness claim.
 
 Evaluator rules did not change. The independently authored revision-4 table
 oracle, goldens and fixture are byte-for-byte preserved, as are content.js,

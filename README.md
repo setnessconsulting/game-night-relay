@@ -50,9 +50,10 @@ npm run test:browser
 ```
 
 Browser tools remain the baseline's pinned development dependencies:
-Playwright 1.64.1 and @axe-core/playwright 4.13.0. No packages or browser binaries
-were installed in this task. Chromium was available; Firefox and WebKit were not.
-The browser runner records those missing supplemental engines explicitly.
+Playwright 1.64.1 and @axe-core/playwright 4.13.0. The current local verification
+uses the lockfile-installed packages; it does not install browser binaries.
+Chromium was available; Firefox and WebKit were not. The browser runner records
+those missing supplemental engines explicitly in the exact-build evidence.
 
 ## Package a hosted candidate
 
@@ -68,6 +69,10 @@ npm run release:package -- --version 2026.10.19-example --out release/2026.10.19
 
 The manifest preserves the evidence limits: packaging does not mark the game approved,
 human-reviewed, or promoted. Generated release directories are ignored by Git.
+Before writing a candidate, the packager requires fresh passing records for
+`npm run check`, `npm test`, and `npm run test:browser`; it matches the records to
+the exact runtime, package, lockfile, verifier, and Chromium version. It refuses
+stale or mismatched evidence.
 
 Revision 4 remains frozen. Revision 5 adds the interaction contract, while all
 source facts, five input domains, evaluator rules, exact output text, 26 goldens,

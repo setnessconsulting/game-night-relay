@@ -1,31 +1,15 @@
-# Night Relay local improvement status
+# Night Relay revision 5 status
 
-The revision-5 interaction is implemented in the isolated directory
-`game-night-relay-improved-20261018`. It preserves the exact dirty baseline from
-`game-night-relay-slice-20261018`; it is not a new Git commit or PR.
+Revision 5 and the immutable static packaging helper are committed in this repository. This file describes the local prototype state, not product acceptance or release status.
 
-The loop now separates route planning from explaining, allows direct evidence
-selection in both sources, keeps the map at narrow widths, offers per-issue
-repair with preserved choices, and presents the completed submitted message.
-The evaluator and all authored revision-4 expected outputs remain unchanged.
+## Local implementation and verification
 
-Fresh results and exact runtime/verifier identities are in
-`docs/evidence/improvement/after/verification-results.json` and
-`docs/evidence/improvement/after/browser-results.json`. The latter reports the
-available Chromium lane separately from unavailable Firefox and WebKit lanes.
-No package, browser or toolchain installation occurred. The existing Python 3.12
-interpreter and already-unpacked cached jsonschema 4.26.0 libraries validated
-both frozen documents and revision 5; the initial missing-library and incompatible
-cached binary attempts are retained as diagnostics.
+The game is a local static browser app. Start it with `npm start`; play and verification instructions are in `README.md`.
 
-Original evidence remains historical. Fresh before/after captures show the start,
-a coherent wrong-entrance message and completion at 1280×900 and 390×844. Browser
-reflow checks also cover 320 CSS pixels and 200% root-font enlargement.
+The exact current local command results and file identities are recorded in `docs/evidence/improvement/after/verification-results.json` and `docs/evidence/improvement/after/browser-results.json`. They describe automated checks only. Chromium is the available browser lane; Firefox and WebKit are recorded separately when unavailable. The release packager checks these records against the exact runtime, package, lockfile and verifier files before creating a candidate.
 
-Human intended-age playtesting, educator review, independent accessibility review,
-disabled-player feedback, actual assistive technology/device/zoom checks and owner
-acceptance remain pending. Automated axe has an incomplete color-contrast check;
-representative computed-color measurements supplement it without establishing
-conformance. No learning-effectiveness, human approval, hosted CI, Jenkins,
-release-readiness or deployment claim is made. No commit, push, PR or external
-service write was performed.
+At the 2026-10-19 repository review, `main` had no hosted workflow, branch protection or ruleset. The live Jenkins catalog classified `setnessconsulting/game-night-relay` as `unmapped`; no Jenkins lane or check is claimed.
+
+## Acceptance and release boundary
+
+Intended-age playtesting, educator review, independent accessibility review, disabled-player feedback, actual assistive-technology and device checks, and owner acceptance remain pending. The proposed criterion matrix is not a formal completion contract. No learning-effectiveness, accessibility-conformance, release-readiness or deployment claim is made. Candidate packaging does not authorize production promotion.

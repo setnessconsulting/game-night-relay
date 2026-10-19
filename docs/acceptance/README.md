@@ -20,7 +20,7 @@ evidence directory and must match the runtime file manifest.
 | A1 keyboard | Native radios, Tab/Shift+Tab order, arrows/Space and Enter, source/help/Replay buttons | Human whole-loop keyboard and assistive-technology checks |
 | A2 focus | Result heading once, issue-field Revise, named source target and exact Return, Replay request | Human visibility/unobscured focus and exact AT announcements |
 | A3 semantics and announcements | Headings, legends, labeled choices, expanded help state, brief polite preview status, no result live region | NVDA/VoiceOver reading order, verbosity and announcement verification |
-| A4 equivalent map | SVG has two named connections, shared start, no connecting gate line; full visible guide provides all facts | Independent map/text equivalence and disabled-player feedback |
+| A4 equivalent map | The DOM route diagram shows two named connections from the shared start, with no connecting gate line; the full visible guide provides all facts | Independent map/text equivalence and disabled-player feedback |
 | A5 non-color and contrast | Radio indicators, border/text states, explicit ordered issue labels, automated axe scan and contrast measurement | Human forced-colors/non-color review and device rendering |
 | A6 resize/reflow | Responsive single column, wrapped controls, 320 CSS pixel and 200% text proxies | Actual 200% text resize and 400% browser zoom from 1280 CSS pixels on agreed matrix |
 | A7 untimed/persistent/reduced motion | No animation, sound dependency, timeout, flashing or auto-advance; reduced-motion rule | Human persistence and AT usability review |

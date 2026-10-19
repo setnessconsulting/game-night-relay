@@ -1,12 +1,33 @@
 import assert from 'node:assert/strict';
 import { mkdir, writeFile, readFile } from 'node:fs/promises';
 import { fileURLToPath } from 'node:url';
+import os from 'node:os';
 import { chromium, firefox, webkit } from 'playwright';
 import AxeBuilder from '@axe-core/playwright';
 import { serve } from './serve.mjs';
 import { buildIdentity, verificationIdentity } from './build-identity.mjs';
 import { fixture, tuples, expectedResult } from '../tests/oracle.mjs';
 import { checkInteractions } from './interaction-check.mjs';
+
+const profileRoots = [...new Set([os.homedir(), process.env.USERPROFILE, process.env.HOME].filter(Boolean))];
+function replaceFolded(input, needle, replacement) {
+  let result = input;
+  let index = result.toLowerCase().indexOf(needle.toLowerCase());
+  while (index !== -1) {
+    result = result.slice(0, index) + replacement + result.slice(index + needle.length);
+    index = result.toLowerCase().indexOf(needle.toLowerCase(), index + replacement.length);
+  }
+  return result;
+}
+function redactProfilePaths(value) {
+  let result = String(value);
+  for (const profileRoot of profileRoots) {
+    result = replaceFolded(result, profileRoot, '<user-profile>');
+    const slashRoot = profileRoot.split(String.fromCharCode(92)).join('/');
+    if (slashRoot !== profileRoot) result = replaceFolded(result, slashRoot, '<user-profile>');
+  }
+  return result;
+}
 
 const out = new URL('../docs/evidence/improvement/after/', import.meta.url);
 await mkdir(out, { recursive:true });
@@ -243,7 +264,7 @@ try {
     let other;
     console.log(`Starting supplemental ${name} smoke…`);
     try { other=await engine.launch({headless:true,timeout:60000}); }
-    catch(error) { report.browsers.push({engine:name,result:'UNAVAILABLE',reason:error.message.split('\n')[0]}); continue; }
+    catch(error) { report.browsers.push({engine:name,result:'UNAVAILABLE',reason:redactProfilePaths(error.message.split('\n')[0])}); continue; }
     try {
       const p=await other.newPage({viewport:{width:390,height:844}});
       await p.goto(url); await p.locator('[data-ready=true]').waitFor();
@@ -255,7 +276,7 @@ try {
   }
   report.result='PASS';
 } catch(error) {
-  report.result='FAIL'; report.error=error.stack; process.exitCode=1;
+  report.result='FAIL'; report.error=redactProfilePaths(error.stack ?? error.message); process.exitCode=1;
 } finally {
   if(browser) await browser.close();
   server.close();

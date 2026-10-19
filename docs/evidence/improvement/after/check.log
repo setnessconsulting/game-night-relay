@@ -3,50 +3,51 @@
 > node scripts/check.mjs
 
 {
-  "syntax_files": 19,
+  "syntax_files": 20,
   "design_hashes": {
-    "game-vision.json": "bf25a8f68e17c6f2ed99d0afd78ff9235bd2efb17c07325309e27b26fad5dd5b",
-    "vertical-slice-brief.json": "649086df0874db63393571313091ab1ad5d14fb06de071105188822c35d99e6d",
-    "vertical-slice-brief-r5.json": "efb27888920e8ec733585a8409d1622d6382e5bb2b48de759b34db099f7e4842"
+    "game-vision.json": "e0c232b5b22bcf73af060ee8473a6af0765a03bad7c10c4b2b12398c664be8ad",
+    "vertical-slice-brief.json": "a2bfe2293fa6e39f3bf5a0e8adcc5a26ecd44ddcb6054ce8328eff66770e7c84",
+    "vertical-slice-brief-r5.json": "2ce2669ed97a54da5a237a58e113f4566dec5e596f338d48128ba63e78401f04"
   },
   "authored_content": "PASS",
   "static_privacy_boundary": "PASS",
   "identity": {
     "algorithm": "sha256",
-    "build": "2d6d52c10a2ef60cf4dec93df5bb554dee785359269cf4c7633f5d52d00a6fd1",
+    "build": "d48689f5410cee3bea17c26efef90d2273a11e359ce3835634f70150d10a058f",
     "files": {
-      "index.html": "51d50eef4c6908599e6c28799403ccc94d25c62b3613154c3756d041ee72ad33",
-      "package.json": "cc03994d4cd9da97781f11bc266f4167be8042ea9a8c070f244dd198a30ba37e",
-      "package-lock.json": "4ab73e5894f8c2b157060b64ebcd14758e8cba02d726d511b442b74025732d36",
-      "src/app.js": "3469626fca44a80ced72cb2c500350520e067bd1fa11e9240eefaa2ee5c4fc92",
-      "src/bootstrap.js": "1c6b1a851d8a28cfaf74d9d5872e1675a0fa5f98c982f86c62ca0d005f740bae",
-      "src/content.js": "ec10c0b67aa34f7f3749096b169f76f3eda066662101b1b42eb879a3f788ccbe",
-      "src/evaluator.js": "7282f0811cc9ac41c4af5694403c46422c8ed031182e7fe1b2d1ff8a0beee848",
-      "src/format.js": "3424aeba77f28c43186a2663b1d238289ac2ca8d9f04dc53f2fd147d6d5c7c3b",
-      "src/session.js": "b087d317ea7537d685d1fb6aa2a7aafed1db39718457e1672cf58b65d45c6cc7",
-      "src/style.css": "b762f67e364c3718c813bf1a8ce8c11c11faabced7ec2ad8549e0dba5e6a5222"
+      "index.html": "76c7032203eaec0e98ca98585bc958e0b6dac84fd44430ba61998115c0d65973",
+      "package.json": "8a232374a075021133091f0cd5b3ccdfb82da481d8d3e038fdd18efc4d07f995",
+      "package-lock.json": "df5f35f918ac3d34f619dfb6a8078a38a9dfb916d3539592b94f2c9163f1088d",
+      "src/app.js": "a0f793847eeeec01f7470aaf7cbf57685011984a6c46f2ee44018ed21d45a243",
+      "src/bootstrap.js": "086c842496f1b9e0deefc2fbb4b058dd4cb75b44b6b10d18e34abe37b40964bf",
+      "src/content.js": "bf1c59f58276711cebea2bab6a491b569063f47115fb66626309dd81f65557e2",
+      "src/evaluator.js": "0f3a45ba60b222bc4452585b5cae1508040a9a7ad282205dd2ed083150de7832",
+      "src/format.js": "d4fa266d8743589656f4847ceae6d9dbe3991db0d39599d00b43f190361b22d2",
+      "src/session.js": "04c670fef229d1673065871a53223b45519680e492b4794a0f51535ba382ecb9",
+      "src/style.css": "6d6dade3ba9291d6ea2736b6b9029c06d2dddcd1f7941cea02db353e47ab847c"
     }
   },
   "verification": {
     "algorithm": "sha256",
-    "verifier": "714c8ff7d1dc6ea1ad92b6ca2fedf21d32875172580512ec334b6eee6e3cf659",
+    "verifier": "ef3600191b9775b961a66cba98c4fe78cc2ab1196816fb51694663c21599303d",
     "files": {
-      "scripts/browser-check.mjs": "c74d9986c4b52ffcb84d4905fbf93023e3df2f1241003f141af76b10c1b605e2",
-      "scripts/build-identity.mjs": "654972afab35ef77a9ad44eb7b615d847856e35bb061e147cdeddd0961b37978",
-      "scripts/capture-comparison.mjs": "affe96c9493586b52ad621c2fd6dc6847abde721befcbdf307b0a2b85afdbe8d",
-      "scripts/check.mjs": "37e1bd74c3b0baa769f90b9a9ceace24b2e42fe38cdf2159e4a22bf72f9d7e72",
-      "scripts/extract-contract.mjs": "69ac50587f20958dc9f6436b3e3c4e36c8e87a84ad40a0561ccc22453e79b9c4",
-      "scripts/interaction-check.mjs": "3b956e263a8bbb13b1d50bcd769ce37e55dc9cdb6dbab9183742042a78bebd7e",
-      "scripts/serve.mjs": "309bc3e01ceb779e12d76348c527b28cb168b1ac965dd7d17a6308a84ba1b95f",
-      "scripts/validate-design.py": "e718a00bb96db5b8c9b9bc656149ab298d58578d4e29f4c301d9ee41aad8bb5f",
-      "scripts/verify-isolation.mjs": "52567d689e570852899fc38930bf36d5f847fe9f0e1f62643e04523b8aaa1060",
-      "scripts/verify-local.mjs": "b858e3163fc98fdd9ebc3e32ec113d191fd974bb3de3e08e35142f6cfe62bf1f",
-      "tests/evaluator.test.mjs": "0edcc0b721f70d76eb309cbfe40b07d8878519709de453575f53777bcd1d09cd",
-      "tests/fixtures/revision-4-oracle.json": "7c010d39311ff72b58f9425a14ad5ff5d4056ca5ed7e29eee932662fc5dd3c6b",
-      "tests/fixtures/revision-5-interactions.json": "e6b6067082d39becd8975c06a950899aa05d852dceca54409d90ac876e0e86d6",
-      "tests/interaction-contract.test.mjs": "d26265ea8889100a3793fe5fc8d15ed448de8f5933b39adfad62d403a54d6149",
-      "tests/oracle.mjs": "6c8891061210168b3b99669ef830648e9c3c102fe75248df0624221fd5e82c31",
-      "tests/session.test.mjs": "b0f4e768946dfe6e3cddd3ccf394193a28b01097e28e5fd712feedf39e728197"
+      "scripts/browser-check.mjs": "c920c43166b7cee8f0f28fd4cac774810a04a1f98affa86bb6921278f7d7065a",
+      "scripts/build-identity.mjs": "733ce64586b5312a5d90a2d969940ec95b690327e03fa3be58ab5b62d733dbbe",
+      "scripts/capture-comparison.mjs": "5f82ffd439b7965d35906709f3819a2b9dd540640caf429b7beb98aa00bf9aff",
+      "scripts/check.mjs": "9f14e93034ef45bca4c68595a94a8c094c0a73126ab95839fbbffe975bf5e06a",
+      "scripts/extract-contract.mjs": "adfe7c91f95b51f57fcfb8953e1b3ad77bfe90c5d68ec8c871282d8873807902",
+      "scripts/interaction-check.mjs": "6e3c7019f2dead631e2fac17343292644aa58d2cd0ef2a31e6260064d7244dcb",
+      "scripts/package-release.mjs": "e6ef84c89f2e6c7fe92a4c47410d0f13407bcb9a8fa23fad0eee0c3e1c36525f",
+      "scripts/serve.mjs": "8a6d05c68bec4fbf942d4f6ae24873ae0e20946113c858c3fbe60bb82a19e57b",
+      "scripts/validate-design.py": "96d05e4b4a8e771faf9524f3b71d512c1f3dc9b1a2deaa46efa38f6694bcd808",
+      "scripts/verify-isolation.mjs": "f9f64652f03d7442e8a5e3e581dcc2537d9ab946dce2acc276b4ad16860b1fe8",
+      "scripts/verify-local.mjs": "e371d56a6a024832e9519bb114734cc6ebc80c43f8f56832a708e3a715ec57a3",
+      "tests/evaluator.test.mjs": "f349969ab77a04d24d476b0f5db4025e3cdb4b4cdca9502dbd3d92c5b0bae5e6",
+      "tests/fixtures/revision-4-oracle.json": "841b10a38894d82fd65e224d4e7a67c1044eccc545c920067c1e7a30b460f16b",
+      "tests/fixtures/revision-5-interactions.json": "5aa2d7a31d9f389830a120f2b6d82b62de95f0fcbdbfd98d35406fe824f7c423",
+      "tests/interaction-contract.test.mjs": "980a54a2207f513ddc4609847f08d9c1587cf6da96cc91c4d402f3b574921f22",
+      "tests/oracle.mjs": "6d230e70dd57fc179fe2c6399d05cf8a02fcf25bff3a894277b11cdf0192451b",
+      "tests/session.test.mjs": "2af9160bbbba846045be87fc35661e63a42f5454547f95452600ce43645e4336"
     }
   }
 }

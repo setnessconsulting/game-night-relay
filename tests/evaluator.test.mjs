@@ -1,14 +1,14 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import { readFileSync } from 'node:fs';
-import { createHash } from 'node:crypto';
+import { sha256TextLf } from '../scripts/build-identity.mjs';
 import { evaluate, ContractError } from '../src/evaluator.js';
 import { preview } from '../src/format.js';
 import { fixture, tuples, asRecord, expectedResult } from './oracle.mjs';
 
-test('frozen oracle fixture is bound to the exact reviewed authoring, without production output', () => {
+test('frozen oracle fixture is bound to canonical-LF reviewed authoring, without production output', () => {
   const bytes = readFileSync(new URL('../docs/design/vertical-slice-brief.json', import.meta.url));
-  assert.equal(createHash('sha256').update(bytes).digest('hex'), fixture.brief_sha256);
+  assert.equal(sha256TextLf(bytes), fixture.brief_sha256);
   const p = JSON.parse(bytes).payload;
   assert.deepEqual(fixture.tables, p.evaluator_contract.pair_table_oracle);
   assert.deepEqual(fixture.priority, p.evaluator_contract.issue_order);

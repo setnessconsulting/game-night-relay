@@ -16,17 +16,19 @@ No Astra invocation was used in this session.
 ## Source identity and isolation
 
 Base: live game `main` at `2c46b0eb4c1e83585e234f891c92eb3498ce3802`.
-Branch: `codex/night-relay-slice-20261018`, separate worktree. No commit exists
-for these changes. Runtime evidence uses a SHA-256 file manifest from
-`scripts/build-identity.mjs`; a base SHA alone does not identify uncommitted code.
+Branch: `codex/night-relay-slice-20261018`, separate worktree. At the time of
+this report, these changes were local and uncommitted; they were subsequently
+committed in PR #2. Runtime evidence uses a SHA-256 file manifest from
+`scripts/build-identity.mjs`; a base SHA alone does not identify changed code.
 
 The two JSON artifacts were copied only after source digest checks, with original
 files preserved in the design worktree:
 
-| Artifact | Reviewed SHA-256 |
+| Artifact | Reviewed SHA-256 (UTF-8 with CRLF normalized to LF) |
 | --- | --- |
-| GameVision | `bf25a8f68e17c6f2ed99d0afd78ff9235bd2efb17c07325309e27b26fad5dd5b` |
-| VerticalSliceBrief | `649086df0874db63393571313091ab1ad5d14fb06de071105188822c35d99e6d` |
+| GameVision | `e0c232b5b22bcf73af060ee8473a6af0765a03bad7c10c4b2b12398c664be8ad` |
+| VerticalSliceBrief | `a2bfe2293fa6e39f3bf5a0e8adcc5a26ecd44ddcb6054ce8328eff66770e7c84` |
+| Revision-5 VerticalSliceBrief | `2ce2669ed97a54da5a237a58e113f4566dec5e596f338d48128ba63e78401f04` |
 
 Both retain their original proposal/design-intent metadata and `NOT_RUN` state.
 Their historical limitations remain part of those frozen documents; current

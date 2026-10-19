@@ -3,6 +3,7 @@ import { execFileSync } from "node:child_process";
 import { access, copyFile, mkdir, readFile, stat, writeFile } from "node:fs/promises";
 import { dirname, extname, join, resolve, sep } from "node:path";
 import { fileURLToPath } from "node:url";
+import { buildIdentity, verificationIdentity } from "./build-identity.mjs";
 
 const root = resolve(fileURLToPath(new URL("..", import.meta.url)));
 const args = process.argv.slice(2);
@@ -35,8 +36,8 @@ if (status) throw new Error("Refusing to package a dirty source checkout.");
 const lockPath = join(root, "package-lock.json");
 const lockHash = sha256(await readFile(lockPath));
 const evidencePaths = [
-  "docs/evidence/verification-results.json",
-  "docs/evidence/browser-results.json",
+  "docs/evidence/improvement/after/verification-results.json",
+  "docs/evidence/improvement/after/browser-results.json",
   "docs/evidence/improvement/README.md"
 ];
 const evidence = [];
@@ -75,8 +76,57 @@ for (const path of payloadPaths) {
 
 const aggregateBuildHash = sha256(JSON.stringify(files));
 const verificationRecord = JSON.parse(
-  await readFile(join(root, "docs/evidence/verification-results.json"), "utf8")
+  await readFile(join(root, evidencePaths[0]), "utf8")
 );
+const browserRecord = JSON.parse(await readFile(join(root, evidencePaths[1]), "utf8"));
+const sameJson = (left, right) => JSON.stringify(left) === JSON.stringify(right);
+const requiredCommands = ["npm run check", "npm test", "npm run test:browser"];
+
+if (
+  !Array.isArray(verificationRecord.commands) ||
+  verificationRecord.commands.length !== requiredCommands.length ||
+  verificationRecord.commands.some(
+    (command, index) => command.command !== requiredCommands[index] || command.exit_code !== 0
+  )
+) {
+  throw new Error("The current revision-5 verification record must show every required command passing exactly once.");
+}
+if (
+  browserRecord.result !== "PASS" ||
+  !browserRecord.browsers?.some((browser) => browser.engine === "Chromium" && browser.version)
+) {
+  throw new Error("The current revision-5 browser record does not show a passing result.");
+}
+const currentBuild = buildIdentity();
+const currentVerifier = verificationIdentity();
+if (
+  !verificationRecord.identity?.build ||
+  verificationRecord.identity.build !== browserRecord.identity?.build ||
+  !sameJson(verificationRecord.identity.files, browserRecord.identity?.files) ||
+  verificationRecord.verification?.verifier !== browserRecord.verification?.verifier ||
+  !sameJson(verificationRecord.verification?.files, browserRecord.verification?.files) ||
+  !sameJson(verificationRecord.identity, currentBuild) ||
+  !sameJson(browserRecord.identity, currentBuild) ||
+  !sameJson(verificationRecord.verification, currentVerifier) ||
+  !sameJson(browserRecord.verification, currentVerifier)
+) {
+  throw new Error("The revision-5 verification and browser records identify different source or verifier files.");
+}
+
+for (const path of [...payloadPaths, "package.json", "package-lock.json"]) {
+  const recordedHash = browserRecord.identity.files?.[path];
+  const currentHash = sha256(await readFile(join(root, path)));
+  if (!recordedHash || recordedHash !== currentHash) {
+    throw new Error(`The revision-5 evidence does not identify the current ${path}; refresh verification before packaging.`);
+  }
+}
+
+for (const file of files) {
+  if (browserRecord.identity.files[file.path] !== file.sha256) {
+    throw new Error(`The browser evidence does not identify the packaged ${file.path}.`);
+  }
+}
+
 const manifest = {
   schemaVersion: 1,
   gameSlug: "night-relay",
@@ -89,11 +139,17 @@ const manifest = {
   files,
   validationEvidenceRefs: evidence,
   evidenceScope: {
-    verificationRecord: {
+    automatedVerification: {
       path: evidence[0].path,
       sha256: evidence[0].sha256,
-      recordedImplementationCommit: verificationRecord.implementation_commit,
-      recordedBaseSha: verificationRecord.base_sha
+      build: verificationRecord.identity.build,
+      commands: verificationRecord.commands.map(({ command, exit_code }) => ({ command, exit_code }))
+    },
+    browserVerification: {
+      path: evidence[1].path,
+      sha256: evidence[1].sha256,
+      build: browserRecord.identity.build,
+      result: browserRecord.result
     },
     hostedCi: "not-recorded-for-this-packaging-commit",
     acceptance: "pending",
