@@ -14,7 +14,7 @@ function option(name) {
 
 const version = option("--version");
 const outputArgument = option("--out");
-if (!version || !/^[A-Za-z0-9._-]+$/.test(version)) {
+if (!version || version === "." || version === ".." || !/^[A-Za-z0-9._-]+$/.test(version)) {
   throw new Error("Pass a path-safe immutable version with --version <version>.");
 }
 
