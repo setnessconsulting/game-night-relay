@@ -54,6 +54,21 @@ Playwright 1.64.1 and @axe-core/playwright 4.13.0. No packages or browser binari
 were installed in this task. Chromium was available; Firefox and WebKit were not.
 The browser runner records those missing supplemental engines explicitly.
 
+## Package a hosted candidate
+
+The game has no build step or runtime package dependency. `npm run release:package`
+copies the local entry page and its JavaScript/CSS modules into an immutable static
+candidate directory and writes a manifest with the exact source SHA, lockfile hash,
+file hashes, aggregate content hash, and links to recorded evidence. Supply an explicit
+version and a new output path:
+
+```text
+npm run release:package -- --version 2026.10.19-example --out release/2026.10.19-example
+```
+
+The manifest preserves the evidence limits: packaging does not mark the game approved,
+human-reviewed, or promoted. Generated release directories are ignored by Git.
+
 Revision 4 remains frozen. Revision 5 adds the interaction contract, while all
 source facts, five input domains, evaluator rules, exact output text, 26 goldens,
 eight recipient overrides and the independent 324-case oracle remain unchanged.
